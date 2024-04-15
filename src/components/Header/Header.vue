@@ -1,0 +1,286 @@
+<script setup>
+import { ref, reactive } from 'vue'
+import { FullscreenOutlined, FullscreenExitOutlined  } from '@ant-design/icons-vue'
+import { useDateFormat, useNow, onClickOutside } from '@vueuse/core'
+import { RouterLink } from 'vue-router'
+
+const nowDateTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
+
+const navModel = ref()
+const nav = reactive({
+  show: false,
+  list:  [{
+    name: '就业创业',
+    routePath: '/jiuyechuanye'
+  },{
+    name: '权益维护',
+    routePath: '/quanyiweihu'
+  },{
+    name: '移交安置',
+    routePath: '/yijiaoanzhi'
+  },{
+    name: '优抚主题',
+    routePath: '/youfu'
+  },
+  {
+    name: '军休安置',
+    routePath: '/junxiuanzhi'
+  },
+  {
+    name: '褒扬纪念',
+    routePath: '/baoyangjinian'
+  },
+  {
+    name: '双拥建设',
+    routePath: '/shuangyongjianshe'
+  }
+  ],
+})
+
+const toggleNav = ({ name }) => {
+  if (name === '主题分析') {
+    nav.show = !nav.show
+  }
+}
+
+onClickOutside(navModel, (event) => {
+  nav.show = false
+  event.stopPropagation()
+})
+
+const openFullScreen = () => {
+  const ele = document.body;
+  if (ele.requestFullscreen) {
+    ele.requestFullscreen();
+  } else if (ele.mozRequestFullScreen) {
+    ele.mozRequestFullScreen();
+  } else if (ele.webkitRequestFullscreen) {
+    ele.webkitRequestFullscreen();
+  } else if (ele.msRequestFullscreen) {
+    ele.msRequestFullscreen();
+  }
+}
+
+const closeFullScreen = () => {
+  const ele = document;
+  if (ele.exitFullScreen) {
+    ele.exitFullScreen();
+  } else if (ele.mozCancelFullScreen) {
+    ele.mozCancelFullScreen();
+  } else if (ele.webkitExitFullscreen) {
+    ele.webkitExitFullscreen();
+  } else if (ele.msExitFullscreen) {
+    ele.msExitFullscreen();
+  }
+}
+
+const list = [{
+  name: '建设成果',
+  routePath: '/'
+},{
+  name: '重点工作',
+  routePath: '/'
+},
+// {
+//   name: '一张图',
+//   routePath: '/'
+// },
+{
+  name: '主题分析',
+  routePath: ''
+},{
+  name: '个人画像',
+  routePath: '/gerenhuaxiang'
+}];
+</script>
+
+<template>
+  <div class="header-container">
+    <!-- 左侧 -->
+    <div class="header-left">
+        <div class="head-button-div">
+            <div v-for="item in list" :key="item.name">
+              <component :is="item.name === '主题分析'?'div':'router-link'" :to="item.routePath">
+                <span
+                  class="nav-item-text"
+                  :style="`${ item.name === '主题分析' && nav.show ? 'color: #1cd0d8;' : '' }`"
+                  @click.stop="toggleNav(item)"
+                >
+                  {{ item.name }}
+                </span>
+              </component>
+            </div>
+        </div>
+    </div>
+    <!-- 中间标题 -->
+    <div class="header-center">
+      退役军人事务决策支持平台
+    </div>
+    <!-- 右侧 -->
+    <div class="header-right">
+      <span class="header-time">{{ nowDateTime }}</span>
+      <span class="header-time" style="margin-left: 48px;">多云 23~25℃</span>
+      <span class="header-time" style="margin-left: 48px;cursor: pointer;">
+        <FullscreenOutlined @click="openFullScreen" />
+      </span>
+      <span class="header-time" style="margin-left: 24px;cursor: pointer;">
+        <FullscreenExitOutlined @click="closeFullScreen" />
+      </span>
+    </div>
+  </div>
+  <div v-if="nav.show" class="nav-model" ref="navModel">
+    <ul class="nav-list">
+      <li class="nav-item" v-for="(item, index) in nav.list" :key="index">
+        <RouterLink :to="item.routePath">
+          <span class="nav-item-text">{{ item.name }}</span>
+        </RouterLink>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.header-container {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  height: 230px;
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../../assets/images/header-bg.png') center center/cover;
+    opacity: 0.8;
+    z-index: -1;
+  }
+  .header-left {
+    width: 1620px;
+    display: ipxnline-flex;
+    align-items: center;
+    color: #00d2ff;
+    .nav-wrapper {
+      margin-right: 30px;
+      cursor: pointer;
+    }
+    .line {
+      width: 2px;
+      height: 26px;
+      background: #00d2ff;
+    }
+    .logo-wrapper {
+      margin-left: 30px;
+      .logo-image {
+        width: 110px;
+        height: 36px;
+      }
+    }
+  }
+  .header-center {
+    flex: 1;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 800;
+    letter-spacing: 16px;
+    background: linear-gradient(180deg, #e5f8fd, #0862e7);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 30px;
+    .title-image {
+      width: 376px;
+      height: 75px;
+    }
+  }
+  .header-right {
+    width: 1500px;
+    display: inline-flex;
+    justify-content: flex-end;
+    padding-top: 105px;
+    .header-time {
+      color: #00d2ff;
+      font-size: 38px;
+    }
+  }
+}
+.nav-model {
+  position: fixed;
+  top: 160px;
+  left: 1055px;
+  z-index: 99;
+  padding: 18px;
+  width: 358px;
+  height: 627px;
+  background: url('../../assets/images/nav-bg.png') center center/100% 627px no-repeat;
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 20px 50px;
+    background-size: 100% 100%;
+    .nav-item {
+      color: #fff;
+      height: 80px;
+      line-height: 80px;
+      border-bottom: 1px dashed #00d2ff;
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+      .nav-item-text {
+        color: #1cd0d8;
+        font-size: 36px;
+      }
+    }
+  }
+}
+
+.head-button-div {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    margin-top: 68px;
+}
+.head-button-div > div {
+    flex: 1;
+    text-align: center;
+    padding-bottom: 12px;
+
+    .nav-item-text {
+      line-height: 46px;
+      color: #00d2ff;
+      font-size: 32px;
+
+      &:hover {
+        color: #1cd0d8;
+        cursor: pointer;
+      }
+    }
+}
+.head-button-div.right > div:hover {
+    color: rgb(8, 98, 231);
+    border-bottom: 0;
+}
+.head-button-div.right > .f11 {
+    flex: none;
+}
+.head-button-div.right > .weather {
+    flex: none;
+    cursor: default;
+}
+.head-button-div.right > .date {
+    flex: content;
+    text-align: right;
+    white-space: pre-wrap;
+    cursor: default;
+}
+</style>
