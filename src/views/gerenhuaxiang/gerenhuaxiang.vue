@@ -3,6 +3,7 @@
 -->
 <script setup>
 import { ref } from 'vue'
+import pageBg from '@/assets/images/pageBg.png'
 import WordCloud from './components/WordCloud.vue'
 import TreeCharts from './components/TreeCharts.vue'
 import InfoCard from './components/InfoCard.vue'
@@ -250,6 +251,7 @@ function handleWordCloundTagClick(item) {
   margin-top: 50px;
   padding: 12px;
   border-radius: 20px;
+  opacity: 0.9;
   .wapper-contain {
     width: 100%;
     height: 100%;
