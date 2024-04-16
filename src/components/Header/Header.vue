@@ -49,28 +49,28 @@ onClickOutside(navModel, (event) => {
 })
 
 const openFullScreen = () => {
-  const ele = document.body;
+  const ele = document.body
   if (ele.requestFullscreen) {
-    ele.requestFullscreen();
+    ele.requestFullscreen()
   } else if (ele.mozRequestFullScreen) {
-    ele.mozRequestFullScreen();
+    ele.mozRequestFullScreen()
   } else if (ele.webkitRequestFullscreen) {
-    ele.webkitRequestFullscreen();
+    ele.webkitRequestFullscreen()
   } else if (ele.msRequestFullscreen) {
-    ele.msRequestFullscreen();
+    ele.msRequestFullscreen()
   }
 }
 
 const closeFullScreen = () => {
-  const ele = document;
+  const ele = document
   if (ele.exitFullScreen) {
-    ele.exitFullScreen();
+    ele.exitFullScreen()
   } else if (ele.mozCancelFullScreen) {
-    ele.mozCancelFullScreen();
+    ele.mozCancelFullScreen()
   } else if (ele.webkitExitFullscreen) {
-    ele.webkitExitFullscreen();
+    ele.webkitExitFullscreen()
   } else if (ele.msExitFullscreen) {
-    ele.msExitFullscreen();
+    ele.msExitFullscreen()
   }
 }
 
@@ -91,7 +91,7 @@ const list = [{
 },{
   name: '个人画像',
   routePath: '/gerenhuaxiang'
-}];
+}]
 </script>
 
 <template>
@@ -186,9 +186,9 @@ const list = [{
   .header-center {
     flex: 1;
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 800;
-    letter-spacing: 16px;
+    letter-spacing: 10px;
     background: linear-gradient(180deg, #e5f8fd, #0862e7);
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -32,9 +32,6 @@ const subtitleClick = () => {
   width: v-bind(_width);
   height: 75px;
   padding: 0 50px 0 90px;
-  // background: v-bind('_background');
-  // background-repeat: no-repeat;;
-  // background-size: cover;
   position: relative;
   &::after {
     content: '';
@@ -46,10 +43,10 @@ const subtitleClick = () => {
     right: 0;
     bottom: 0;
     left: 0;
-    background: v-bind('_background');
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.6;
+    background: v-bind('_background') center bottom/100% 50px no-repeat;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    opacity: 0.4;
     z-index: -1;
   }
   .title-text {

@@ -12,8 +12,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331000',
+    name: '李四',
+    certno: '110111198407241874',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -21,8 +21,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331001',
+    name: '王五',
+    certno: '231084199111133650',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -30,8 +30,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331002',
+    name: '赵六',
+    certno: '330112199103294135',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -39,8 +39,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331003',
+    name: '钱七',
+    certno: '140302199505212895',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -48,8 +48,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331004',
+    name: '陈八',
+    certno: '350426199309266613',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -57,8 +57,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331005',
+    name: '刘九',
+    certno: '210302198503306955',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -66,8 +66,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331006',
+    name: '孙十',
+    certno: '653024199501216455',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -75,8 +75,8 @@ export const infosData = [
     empName: '电科'
   },
   {
-    name: '张三',
-    certno: '321111222233331007',
+    name: '吴加',
+    certno: '140226198512167675',
     gend: '男',
     mobile: '13112345678',
     naty: '汉',
@@ -95,8 +95,8 @@ export const typeEnum = [
 export const chartsEnum = [
   '全景画像',
   '关系图谱',
-  '资金溯源',
-  '稳控线索',
+  // '资金溯源',
+  // '稳控线索',
   '技能成长',
   '就业去向',
   '智享服务',
@@ -447,6 +447,27 @@ export const wordcloudData = [
   { value: '12', name: '3622123122' },
   { value: '12', name: '3622123122' },
   { value: '10', name: 'Lenova112' }
+]
+
+export const skillList = [
+  { name: '一级建造师', time: '2023-12-01' },
+  { name: '建造师培训', time: '2023-06-01' },
+  { name: '二级建造师', time: '2022-12-01' },
+  { name: '建造师培训', time: '2021-06-01' },
+  { name: '土木工程本科', time: '2020-06-01' },
+  { name: '适应性培训', time: '2019-03-01' }
+]
+
+export const workList = [
+  { time: '2023-11-13 09:09:09',  empName: '力行工程建设有限公司',  job: '工程监理',  status: '已失效' },
+  { time: '2023-12-12 09:09:09',  empName: '大力装潢设计有限公司',  job: '工程监理',  status: '已失效' },
+  { time: '2024-02-12 09:09:09',  empName: '工匠装潢工程有限公司',  job: '商务专员',  status: '已失效' },
+  { time: '2024-03-01 10:09:09',  empName: '力行工厂建设有限公司',  job: '总经理助理',  status: '已收到' },
+  { time: '2024-03-05 10:09:09',  empName: '大力装潢设计有限公司',  job: '设计师',  status: '沟通中' },
+  { time: '2024-03-12 10:09:09',  empName: '大力装潢设计有限公司',  job: '工程监理',   status: '已收到' },
+  { time: '2024-03-16 10:09:09',  empName: '工匠装潢工程有限公司',  job: '商务专员',  status: '已收到' },
+  { time: '2024-03-18 10:09:09',  empName: '工匠装潢工程有限公司',  job: '销售经理',  status: '已收到' },
+
 ]
 
 

@@ -7,6 +7,8 @@ import WordCloud from './components/WordCloud.vue'
 import TreeCharts from './components/TreeCharts.vue'
 import InfoCard from './components/InfoCard.vue'
 import Guanxitupu from './components/guanxitupu.vue'
+import SkillUp from './components/SkillUp.vue'
+import WorkList from './components/WorkList.vue'
 import PageHeader from '../../components/Header/PageHeader.vue'
 import { SearchOutlined  } from '@ant-design/icons-vue'
 // import locale from 'ant-design-vue/es/date-picker/locale/zh_CN'
@@ -17,7 +19,11 @@ const autoScale = true
 // const autoScale = false
 const timeEnum = ['当月', '季度', '半年', '一年']
 const themeEnum = ['全景', '安置', '优抚', '就业', '培训', '双拥', '诉求', '褒扬']
-const viewEnum = ['焦点视图', '网格视图', '报告视图']
+const viewEnum = [
+  '焦点视图',
+  '网格视图',
+  // '报告视图'
+]
 
 const title = '个人画像'
 
@@ -27,14 +33,17 @@ const activeInfo = ref(infosData[0])
 function handleInfoCardClick(info) {
   activeInfo.value = info
 }
-const activeChart = ref('关系图谱')
+const activeChart = ref('全景画像')
 const activeTime = ref('当月')
 const activeTheme = ref('全景')
 const activeView = ref('焦点视图')
 const activeFooterMenu = ref('单维')
 const treeChartsShow = ref(false)
 const dateRange = ref(['2020-01-01', '2024-01-01'])
-const wordcloudData25 = wordcloudData.sort((a, b) => { a.value - b.value }).filter((item, index) => index < 25)
+const wordcloudData25 = wordcloudData.filter(item => {
+  return ['资金异常', '重点关注', '先锋模范', '就业困难'].includes(item.name)
+}).sort((a, b) => { a.value - b.value }).filter((item, index) => index < 25)
+
 function handleChartsEnumClick(item) {
   activeChart.value = item
 }
@@ -92,7 +101,7 @@ function handleWordCloundTagClick(item) {
                 <SearchOutlined />
               </template>
             </a-input>
-            <a-button type="text">搜索</a-button>
+            <a-button type="text" size="small">搜索</a-button>
           </div>
           <div  class="left-bottom">
             <div class="tabs-box">
@@ -120,11 +129,11 @@ function handleWordCloundTagClick(item) {
             >{{ item }}</div>
           </div>
           <template v-if="activeChart === '关系图谱'">
-            <div  class="right-bottom">
+            <div class="right-bottom">
               <Guanxitupu />
             </div>
           </template>
-          <template v-else>
+          <template v-else-if="activeChart === '全景画像'">
             <div  class="right-bottom">
               <div class="menu-box">
                 <div class="menu-box_left">
@@ -207,7 +216,7 @@ function handleWordCloundTagClick(item) {
                 <p>画像名字：{{ activeInfo.name }}</p>
                 <p>电话信息：{{ activeInfo.mobile }}</p>
               </div>
-              <div class="footer-menu_right">
+              <div v-if="treeChartsShow" class="footer-menu_right">
                 <div
                   v-for="menu in footerMenuEnum"
                   :key="menu"
@@ -215,6 +224,16 @@ function handleWordCloundTagClick(item) {
                   @click="handleFooterMenuEnumClick(menu)"
                   >{{ menu }}</div>
               </div>
+            </div>
+          </template>
+          <template v-else-if="activeChart === '技能成长'">
+            <div class="right-bottom">
+              <SkillUp />
+            </div>
+          </template>
+          <template v-else-if="activeChart === '就业去向'">
+            <div class="right-bottom">
+              <WorkList />
             </div>
           </template>
         </div>
@@ -261,10 +280,12 @@ function handleWordCloundTagClick(item) {
         color: #FFFFFF;
         border-color: #2D6998;
         margin-right: 10px;
+        font-size: 11px;
         ::v-deep {
           .ant-input {
             background-color: #062656;
             color: #FFFFFF;
+            font-size: 11px;
             &::placeholder {
               color: #909090;
             }
@@ -276,6 +297,7 @@ function handleWordCloundTagClick(item) {
       }
       .ant-btn {
         background: linear-gradient(#8A9CA6, #2580A5);
+        font-size: 11px;
       }
     }
     &-bottom {
@@ -287,6 +309,7 @@ function handleWordCloundTagClick(item) {
           color: #909090;
           margin-right: 15px;
           line-height: 20px;
+          font-size: 11px;
         }
       }
       .info-box {
@@ -316,12 +339,16 @@ function handleWordCloundTagClick(item) {
       height: 42px;
       padding: 6px 10px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       .tab-item {
-        width: 100px;
+        width: 80px;
         height: 28px;
         line-height: 28px;
+        font-size: 11px;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
       }
     }
     &-bottom {
@@ -333,6 +360,7 @@ function handleWordCloundTagClick(item) {
         justify-content: space-between;
         align-items: flex-start;
         color: #9FAAB4;
+        font-size: 11px;
         &_item {
           display: flex;
           justify-self: flex-start;
@@ -366,14 +394,14 @@ function handleWordCloundTagClick(item) {
           align-items: center;
           .view-tab {
             background-color: #1E355E;
-            height: 32px;
-            line-height: 32px;
+            height: 28px;
+            line-height: 28px;
             width: 80px;
             text-align: center;
             color: #9FAAB4;
             margin-left: 10px;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 11px;
             cursor: pointer;
             &.active {
               background-color: #0E3C8A;
@@ -425,11 +453,12 @@ function handleWordCloundTagClick(item) {
       bottom: 0;
       left: 0;
       right: 0;
-      height: 50px;
+      height: 40px;
+      font-size: 11px;
       &_left {
-        height: 50px;
+        height: 40px;
         width: 500px;
-        border-top-right-radius: 50px;
+        border-top-right-radius: 40px;
         border: 1px solid #143872;
         background: linear-gradient(to top, #123262, #264D86);
         display: flex;
@@ -437,14 +466,14 @@ function handleWordCloundTagClick(item) {
         align-items: center;
         > p {
           color: #E0E0E0;
-          font-size: 14px;
+          font-size: 12px;
           text-shadow: #FFFFFF 2px 2px 5px;
         }
       }
       &_right {
         position: absolute;
         width: 280px;
-        height: 32px;
+        height: 28px;
         right: 20px;
         bottom: 10px;
         background: linear-gradient(#8A9CA6, #2580A5);

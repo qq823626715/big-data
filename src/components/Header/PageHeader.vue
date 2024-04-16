@@ -114,7 +114,7 @@ function goHome() {
     text-align: center;
     line-height: 2;
     font-weight: 800;
-    letter-spacing: 16px;
+    letter-spacing: 4px;
     background: linear-gradient(180deg, #e5f8fd, #0862e7);
     background-clip: text;
     -webkit-text-fill-color: transparent;

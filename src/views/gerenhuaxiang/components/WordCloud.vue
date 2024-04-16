@@ -21,9 +21,10 @@ provide(THEME_KEY, 'dark')
 
 const props = defineProps(['data'])
 
-const colors = ['#65DCDE', '#3282F6', '#3580BB', '#9FFCFD']
+const colors = ['rgba(101, 220, 222, 10%)', 'rgba(50, 130, 246, 10%)', 'rgba(53, 128, 187, 10%)', 'rgba(159, 252, 253, 10%)']
 const option = ref({
   backgroundColor: 'transparent',
+  color: colors,
   series: [
     {
       type: 'wordCloud',
@@ -59,6 +60,11 @@ const option = ref({
       textStyle: {
         fontFamily: 'sans-serif',
         fontWeight: 'bold',
+        textShadowColor: '#FFFFFF',
+        textShadowBlur: 8,
+        textShadowOffsetX: 8,
+        textShadowOffsetY: 8,
+        // color: 'transparent',
         // Color can be a callback function or a color string
         color: function (item) {
           // Random color
@@ -68,7 +74,7 @@ const option = ref({
             '就业困难',
             '资金异常'
           ]
-          return mainData.includes(item.name) ? colors[Math.floor(Math.random() * 4)] : '#123C61'
+          return mainData.includes(item.name) ? colors[Math.floor(Math.random() * 4)] : 'rgba(18,60,97,30%)'
         }
       },
       emphasis: {

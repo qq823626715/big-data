@@ -18,7 +18,7 @@ defineProps({
     <div class="info-card_right">
       <div class="info-title">
         <p>{{ data.name }}</p>
-        <a-tag color="#18607E">先锋模范</a-tag>
+        <a-tag color="#18607E" size="small">先锋模范</a-tag>
       </div>
       <div class="info-content">
         <div class="info-content_left">
@@ -61,10 +61,14 @@ defineProps({
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    .ant-tag {
+      font-size: 11px;
+    }
     & > p {
       line-height: 26px;
       min-width: 50px;
       margin-right: 10px;
+      font-size: 11px;
     }
   }
   .info-content {
