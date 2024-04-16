@@ -29,22 +29,22 @@ const option = ref({
     bottom: 0,
   },
   legend: {
-      top: 'bottom',
-      itemWidth: 20,
-      itemHeight: 20,
-      textStyle: {
-        align: 'left',
-        backgroundColor: 'transparent',
-        rich: {
-          b: {
-            fontSize: 26,
-            width: 130,
-            height: 40,
-          }
+    top: 'bottom',
+    itemWidth: 20,
+    itemHeight: 20,
+    textStyle: {
+      align: 'left',
+      backgroundColor: 'transparent',
+      rich: {
+        b: {
+          fontSize: 26,
+          width: 130,
+          height: 40,
         }
-      },
-      formatter: [`{b|{name}}`].join('\n')
+      }
     },
+    formatter: ['{b|{name}}'].join('\n')
+  },
   series: [
     {
       name: '会员分布情况',
@@ -53,7 +53,6 @@ const option = ref({
       center: ['47%', '40%'],
       avoidLabelOverlap: false,
       itemStyle: {
-        borderRadius: 0,
         borderColor: '#000',
         borderWidth: 2,
         borderRadius: 10
@@ -133,7 +132,7 @@ setTimeout(() => {
   justify-content: center;
   flex-direction: column;
   font-size: 26px;
-  color: white;
+  color: #C0C0C0;
   > .icon {
     flex: 1;
     font-size: 48px;

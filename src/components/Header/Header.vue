@@ -1,45 +1,52 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import { FullscreenOutlined, FullscreenExitOutlined  } from '@ant-design/icons-vue'
+import { FullscreenOutlined, FullscreenExitOutlined, PlayCircleOutlined  } from '@ant-design/icons-vue'
 import { useDateFormat, useNow, onClickOutside } from '@vueuse/core'
 import { RouterLink } from 'vue-router'
 
 const nowDateTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
 
 const navModel = ref()
+const modalVisible = ref(false)
 const nav = reactive({
   show: false,
-  list:  [{
-    name: '就业创业',
-    routePath: '/jiuyechuanye'
-  },{
-    name: '权益维护',
-    routePath: '/quanyiweihu'
-  },{
-    name: '移交安置',
-    routePath: '/yijiaoanzhi'
-  },{
-    name: '优抚主题',
-    routePath: '/youfu'
-  },
-  {
-    name: '军休安置',
-    routePath: '/junxiuanzhi'
-  },
-  {
-    name: '褒扬纪念',
-    routePath: '/baoyangjinian'
-  },
-  {
-    name: '双拥建设',
-    routePath: '/shuangyongjianshe'
-  }
+  list:  [
+    {
+      name: '移交安置',
+      routePath: '/yijiaoanzhi'
+    },
+    {
+      name: '军休安置',
+      routePath: '/junxiuanzhi'
+    },
+    {
+      name: '权益维护',
+      routePath: '/quanyiweihu'
+    },
+    {
+      name: '优抚优待',
+      routePath: '/youfu'
+    },
+    {
+      name: '褒扬纪念',
+      routePath: '/baoyangjinian'
+    },
+    {
+      name: '双拥建设',
+      routePath: '/shuangyongjianshe'
+    },
+    {
+      name: '就业创业',
+      routePath: '/jiuyechuanye'
+    }
   ],
 })
 
 const toggleNav = ({ name }) => {
   if (name === '主题分析') {
     nav.show = !nav.show
+  } else if (name === '建设成果') {
+    modalVisible.value = true
   }
 }
 
@@ -76,7 +83,7 @@ const closeFullScreen = () => {
 
 const list = [{
   name: '建设成果',
-  routePath: '/'
+  routePath: ''
 },{
   name: '重点工作',
   routePath: '/'
@@ -98,19 +105,19 @@ const list = [{
   <div class="header-container">
     <!-- 左侧 -->
     <div class="header-left">
-        <div class="head-button-div">
-            <div v-for="item in list" :key="item.name">
-              <component :is="item.name === '主题分析'?'div':'router-link'" :to="item.routePath">
-                <span
-                  class="nav-item-text"
-                  :style="`${ item.name === '主题分析' && nav.show ? 'color: #1cd0d8;' : '' }`"
-                  @click.stop="toggleNav(item)"
-                >
-                  {{ item.name }}
-                </span>
-              </component>
-            </div>
+      <div class="head-button-div">
+        <div v-for="item in list" :key="item.name">
+          <component :is="item.name === '主题分析' || item.name === '建设成果' ?'div':'router-link'" :to="item.routePath">
+            <span
+              class="nav-item-text"
+              :style="`${ item.name === '主题分析' && nav.show ? 'color: #1cd0d8;' : '' }`"
+              @click.stop="toggleNav(item)"
+            >
+              {{ item.name }}
+            </span>
+          </component>
         </div>
+      </div>
     </div>
     <!-- 中间标题 -->
     <div class="header-center">
@@ -137,6 +144,13 @@ const list = [{
       </li>
     </ul>
   </div>
+  <a-modal v-model:open="modalVisible" width="60%" wrap-class-name="full-modal" :footer="null">
+    <!-- <template #footer>
+      <a-button key="back" @click="handleCancel">关闭</a-button>
+      <a-button key="submit" type="primary" :loading="loading" @click="handleOk">Submit</a-button>
+    </template> -->
+    <PlayCircleOutlined />
+  </a-modal>
 </template>
 
 <style lang="scss" scoped>
@@ -188,7 +202,7 @@ const list = [{
     text-align: center;
     font-size: 60px;
     font-weight: 800;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
     background: linear-gradient(180deg, #e5f8fd, #0862e7);
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -282,5 +296,34 @@ const list = [{
     text-align: right;
     white-space: pre-wrap;
     cursor: default;
+}
+</style>
+<style lang="scss">
+.full-modal {
+  .ant-modal {
+    max-width: 100%;
+    top: 0;
+    padding-bottom: 0;
+    margin: 0 auto;
+  }
+  .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh);
+    background: url("/src/assets/images/member/member-bg.png");
+  }
+  .ant-modal-body {
+    flex: 1;
+  }
+  .ant-modal-close-icon {
+    color: #C0C0C0;
+  }
+  .anticon-play-circle {
+    display: block;
+    color: #768cab;
+    font-size: 100px;
+    margin: 50% auto;
+    cursor: pointer;
+  }
 }
 </style>

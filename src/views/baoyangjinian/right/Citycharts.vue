@@ -20,7 +20,7 @@ const chartData = reactive({
   list: [],
 })
 const builderJson = {
-  all: 550,
+  all: 400,
   charts: {
     '服务对象': 345,
     '退役军人': 298,
@@ -39,7 +39,8 @@ const option = ref({
   bootom: 10,
   top: 0,
   grid: {
-    top: '10%'
+    top: '10%',
+    right: '10%'
   },
   xAxis: [
     {

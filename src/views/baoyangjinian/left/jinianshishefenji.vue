@@ -33,7 +33,7 @@ const option = ref({
     textStyle: {
       align: 'left',
       backgroundColor: 'transparent',
-      fontSize: 8,
+      fontSize: 10,
     },
     orient: 'vertical'
   },
@@ -41,7 +41,7 @@ const option = ref({
     {
       type: 'pie',
       center: ['40%', '50%'],
-      radius: ['0','65%'],
+      radius: ['0','50%'],
       avoidLabelOverlap: false,
       emphasis: { scale: true },
       markPoint: { symbol: 'circle' },
@@ -49,12 +49,12 @@ const option = ref({
       label: {
         show: true,
         position: 'outside',
-        fontSize: 6,
+        fontSize: 10,
         borderWidth: 0,
         color: '#fff',
         formatter: '{b}:{d}%'
       },
-      labelLine: { show: true, length: 3 },
+      labelLine: { show: true },
       selectedMode:'multiple',
       selectedOffset: 1,
     },

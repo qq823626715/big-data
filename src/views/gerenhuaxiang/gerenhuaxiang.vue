@@ -246,8 +246,8 @@ function handleWordCloundTagClick(item) {
 .content {
   display: flex;
   width: 100%;
-  height: 680px;
-  margin-top: 40px;
+  height: 670px;
+  margin-top: 50px;
   padding: 12px;
   border-radius: 20px;
   .wapper-contain {

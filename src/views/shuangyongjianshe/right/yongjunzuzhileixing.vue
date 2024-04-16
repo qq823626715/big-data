@@ -20,7 +20,7 @@ const option = {
       label: {
         show: true,
         position: 'inside',
-        fontSize: 6,
+        fontSize: 10,
         borderWidth: 0,
         color: '#fff',
       },

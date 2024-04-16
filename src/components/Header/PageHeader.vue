@@ -86,7 +86,7 @@ function goHome() {
   z-index: 999;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 50px;
   // background: url('../../assets/images/top.png') no-repeat;
   // background-size: 100% 100%;
   &:after {
@@ -99,7 +99,7 @@ function goHome() {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url("/src/assets/images/top.png") center center/100% 100% no-repeat;
+    background: url('../../assets/images/header-bg.png') center center/contain no-repeat;
     opacity: 0.8;
     z-index: -1;
   }

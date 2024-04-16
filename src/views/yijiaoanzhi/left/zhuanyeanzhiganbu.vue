@@ -75,17 +75,17 @@ import xiaMenMapData from '@/assets/map/jiangsu.json'
 import { randomPieSeries } from '../../jiuyechuanye/center/utils'
 
 const arrays = [
-  { size: 15, axis: [100,110] },
-  { size: 25, axis: [260,90] },
-  { size: 40, axis: [260,180] },
-  { size: 30, axis: [180,260] },
-  { size: 15, axis: [350,270] },
-  { size: 15, axis: [230,310] },
-  { size: 10, axis: [280,270] },
-  { size: 15, axis: [290,340] },
-  { size: 10, axis: [160,90] },
-  { size: 10, axis: [190,150] },
-  { size: 10, axis: [230,120] },
+  { size: 15, axis: [70,30] },
+  { size: 25, axis: [180,10] },
+  { size: 30, axis: [220,180] },
+  { size: 30, axis: [150,230] },
+  { size: 15, axis: [230,280] },
+  { size: 15, axis: [180,290] },
+  { size: 10, axis: [280,230] },
+  { size: 15, axis: [260,310] },
+  { size: 10, axis: [130,90] },
+  { size: 10, axis: [160,120] },
+  { size: 10, axis: [230,80] },
 ]
 
 echarts.registerMap('Map', xiaMenMapData)
@@ -131,6 +131,8 @@ const option = ref({
       type: 'map',
       map: 'Map',
       data: [],
+      top: -30,
+      // right: 0,
       zlevel: 10,
       itemStyle: {
         areaColor: 'rgb(3, 45, 75)',
@@ -147,6 +149,7 @@ const option = ref({
         fontSize: 8,
         color: '#fff'
       },
+      zoom: 1.25,
       boundingCoords: [
         [117.880412,35.957975],
         [120.472644,31.480706]
@@ -173,11 +176,12 @@ test()
 
 <style lang="scss" scoped>
 .chart-wapper {
-    height: 100%;
-    margin: 0;
-    width: 100%;
-    color: rgb(2, 43, 75);
-    position: relative;
+  height: 100%;
+  margin: 0;
+  width: 470px;
+  margin-left: 100px;
+  color: rgb(2, 43, 75);
+  position: relative;
 }
 .message-rank {
     position: absolute;

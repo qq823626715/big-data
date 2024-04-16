@@ -26,20 +26,21 @@ const chartData = reactive({
   list: [],
 })
 const builderJson = {
-  all: 70223 + 32123 + 12123 + 10023,
+  all: 70223 + 32123 + 12123 + 10023 + 302,
   charts: {
     '其他': 10023,
     '抗美援越': 12123,
+    '抗日战争': 30200,
     '抗美援朝': 32123,
     '解放战争': 70223
   }
 }
 const option = ref({
   grid: {
-    top: 0,
+    top: 10,
     left: 0,
     width: 180,
-    height: 150
+    height: 130
   },
   color: color,
   backgroundColor: 'transparent',
@@ -82,10 +83,10 @@ const option = ref({
       data: Object.keys(builderJson.charts).map(function (key) {
         return builderJson.charts[key]
       }),
-      barWidth: 10,
-      barGap: 100,
+      barWidth: 8,
+      barGap: 90,
       itemStyle: {
-        borderRadius: [15, 0, 0, 15],
+        borderRadius: [8, 0, 0, 8],
         color: function (param) {
           return colors[param.name] || '#5470c6'
         }
@@ -135,7 +136,7 @@ setTimeout(() => {
 <style lang="scss" scoped>
 .chart-wrapper {
   width: 100%;
-  height: 200px;
+  height: 180px;
   margin: 10px auto;
   padding: 5px;
   position: relative;

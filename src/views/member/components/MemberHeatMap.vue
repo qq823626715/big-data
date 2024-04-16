@@ -23,11 +23,11 @@ import chinaMapData from '@/assets/map/china_new.json'
 import Citycharts from '../components/Citycharts.vue'
 import Messagerank from '../components/Messagerank.vue'
 
-const cityStr = '苏州、无锡、常州、镇江、南京、南通、扬州、泰州、盐城、淮安、宿迁、徐州、连云港';
+const cityStr = '苏州、无锡、常州、镇江、南京、南通、扬州、泰州、盐城、淮安、宿迁、徐州、连云港'
 const city = cityStr.split('、').map(i => i + '市')
 
-echarts.registerMap('Map', xiaMenMapData);
-echarts.registerMap('chinaMap', chinaMapData);
+echarts.registerMap('Map', xiaMenMapData)
+echarts.registerMap('chinaMap', chinaMapData)
 const option = ref({
   tooltip: {
     trigger: 'item',
@@ -55,7 +55,7 @@ const option = ref({
         itemStyle: {
           areaColor: 'rgb(8,50,116, 1)',
         },
-        label: { show: false, }
+        label: { show: false }
       },
       label: {
         show: true,
@@ -79,7 +79,7 @@ const option = ref({
         borderWidth: '1',
       },
       tooltip: { show: false },
-      label: { show: false, },
+      label: { show: false },
       boundingCoords: [
         [113.980412,35.557975],
         [125.472644,30.780706]
@@ -92,32 +92,32 @@ const chartRef = ref()
 const historyRef = reactive({ name: '' })
 
 const randomCity = () => {
-  const len = city.length;
-  let name = city[Math.floor(Math.random() * len)];
-  while(name === historyRef.value) {
-    name = city[Math.floor(Math.random() * len)];
+  const len = city.length
+  let name = city[Math.floor(Math.random() * len)]
+  while (name === historyRef.value) {
+    name = city[Math.floor(Math.random() * len)]
   }
   chartRef.value.dispatchAction({
     type: 'downplay',
     name: historyRef.name,
-  });
+  })
   chartRef.value.dispatchAction({
-      type: 'highlight',
-      name,
-  });
-  historyRef.name = name;
+    type: 'highlight',
+    name,
+  })
+  historyRef.name = name
 }
 const test = () => {
   setTimeout(() => {
-    randomCity();
-    test();
+    randomCity()
+    test()
   }, 3000)
 }
 
 setTimeout(() => {chartRef.value.setOption({
-    series: [],
-  })
-  test();
+  series: [],
+})
+test()
 })
 </script>
 

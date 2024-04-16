@@ -67,7 +67,7 @@ const config = reactive({
     font-size: 40px;
     padding: 12px;
     font-weight: 800;
-    color: #E0E0E0;
+    color: #c0c0c0;
     white-space: nowrap;
     align-content: center;
   }
@@ -93,7 +93,7 @@ const config = reactive({
     .rank-info {
       height: 100px;
       font-size: 22px;
-      color: #18b0bb;
+      color: #147a9f;
       display: inline-flex;
       padding: 12px;
       display: flex;

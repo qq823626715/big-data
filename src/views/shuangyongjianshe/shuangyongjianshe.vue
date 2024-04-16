@@ -135,9 +135,9 @@ const title = '双拥建设'
       }
     }
     .left >div {
-      height: 230px;
+      height: 210px;
       &:first-child {
-        height: 140px
+        height: 180px
       }
     }
     .right >div {

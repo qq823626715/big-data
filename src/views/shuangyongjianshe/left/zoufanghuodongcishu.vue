@@ -27,6 +27,11 @@ const option = ref({
     top: 13,
     left: 35
   },
+  // legend: {
+  //   textStyle: {
+  //     fontSize: 8
+  //   }
+  // },
   xAxis: {
     name: '月',
     type: 'category',
@@ -50,7 +55,7 @@ const option = ref({
   },
   tooltip: {
     trigger: 'item',
-    show:true,
+    show: true,
   },
   series: [
     {
@@ -142,12 +147,12 @@ setOption()
     margin-top: 6px;
 }
 .tooltip-div {
-    width: 85px;
-    height: 12px;
+    width: 90px;
+    height: 14px;
     position: absolute;
-    margin-left: 188px;
-    margin-top: 6px;
+    margin-left: 180px;
+    margin-top: 4px;
     background: url('@/assets/images/tooltip.png') no-repeat;
-    background-size: 83px 12px;
+    background-size: 88px 14px;
 }
 </style>

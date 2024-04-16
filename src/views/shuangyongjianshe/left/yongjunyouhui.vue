@@ -12,28 +12,28 @@
       <img class="item-image" src="@/assets/images/member/cultivate-1.png" />
       <div class="item-text-div">
         <div class="item-text">优惠资金</div>
-        <div class="item-number" style="color: #23F0FF;">3212万</div>
+        <div class="item-number" style="color: #23F0FF;">3212<span class="item-unit">万</span></div>
       </div>
     </div>
     <div class="content-item">
       <img class="item-image" src="@/assets/images/member/cultivate-2.png" />
       <div class="item-text-div">
         <div class="item-text">优惠次数</div>
-        <div class="item-number" style="color: #007FFD;">1267次</div>
+        <div class="item-number" style="color: #007FFD;">1267<span class="item-unit">次</span></div>
       </div>
     </div>
     <div class="content-item">
       <img class="item-image" src="@/assets/images/member/cultivate-3.png" />
       <div class="item-text-div">
         <div class="item-text">拥军组织</div>
-        <div class="item-number" style="color: #03DF9E;">317个</div>
+        <div class="item-number" style="color: #03DF9E;">317<span class="item-unit">个</span></div>
       </div>
     </div>
     <div class="content-item">
       <img class="item-image" src="@/assets/images/member/cultivate-4.png" />
       <div class="item-text-div">
         <div class="item-text">拥军企业</div>
-        <div class="item-number" style="color: #FF8A37;">3572家</div>
+        <div class="item-number" style="color: #FF8A37;">3572<span class="item-unit">家</span></div>
       </div>
     </div>
   </div>
@@ -43,13 +43,13 @@
 .content-main {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 20px 0;
   flex-wrap: wrap;
   margin: 0 auto 0;
   .content-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     .item-image {
       width: 26px;
       height: 32px;
@@ -57,10 +57,18 @@
     }
     .item-number {
       font-size: 12px;
+      line-height: 12px;
+      height: 12px;
+    }
+    .item-unit {
+      font-size: 8px;
+      padding-left: 2px;
     }
     .item-text {
       color: #fff;
       font-size: 10px;
+      line-height: 10px;
+      height: 10px;
       margin-right: 3px;
     }
     .item-text-div {

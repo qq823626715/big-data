@@ -20,15 +20,16 @@ const chartData = reactive({
   list: [],
 })
 const builderJson = {
-  all: 150,
+  all: 30,
   charts: {
-    '走访慰问': 45,
-    '立功喜报': 98,
-    '光荣牌发放': 46,
-    '困难帮扶': 36,
-    '其他': 19,
+    '走访慰问': 19.7,
+    '立功喜报': 0.12,
+    '光荣牌发放': 1.7,
+    '困难帮扶': 5.6,
+    '其他': 3.2,
   }
 }
+
 const option = ref({
   color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
     { offset: 0, color: '#0c244d' },
@@ -74,8 +75,8 @@ const option = ref({
       label: {
         position: 'right',
         show: true,
-        fontSize: 12,
-        formatter: '{b}',
+        fontSize: 10,
+        formatter: '{b} {c}万次',
       },
       data: Object.keys(builderJson.charts).map(function (key) {
         return builderJson.charts[key]

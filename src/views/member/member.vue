@@ -53,7 +53,7 @@ autoScale = true
           </div>
         </div>
         <div class="wrapper-item left-wrapper-one">
-          <WrapperTitle  title="待安置人员类型" />
+          <WrapperTitle  title="待安置分布" />
           <div class="wrapper-content">
             <Daianzhirenyuan />
           </div>
@@ -65,7 +65,7 @@ autoScale = true
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="优抚对象类型TOP5" :style="{ backgroundSize: '115% 144%', }" />
+          <WrapperTitle title="优抚对象分类TOP5" :style="{ backgroundSize: '115% 144%', }" />
           <div class="wrapper-content">
             <Youfuduixiangleixing />
           </div>
@@ -77,7 +77,7 @@ autoScale = true
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="军休人员变化趋势" :style="{ backgroundSize: '110% 144%', }" />
+          <WrapperTitle title="军休变化趋势" :style="{ backgroundSize: '110% 144%', }" />
           <div class="wrapper-content">
             <Junxiurenyuanbianhuaqushi />
           </div>
@@ -95,7 +95,7 @@ autoScale = true
           </div>
         </div>
         <div class="wrapper-item right-wrapper-one">
-          <WrapperTitle title="创就业人员类型" />
+          <WrapperTitle title="就业分类" />
           <div class="wrapper-content">
             <Chuanjiuyerenyuanleixing />
           </div>

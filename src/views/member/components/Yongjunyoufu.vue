@@ -3,19 +3,19 @@ import { ref } from 'vue'
 import PieChartBg from './PieChartBg.vue'
 import { UserOutlined, MoneyCollectOutlined } from '@ant-design/icons-vue'
 import { CountTo } from 'vue3-count-to'
-const startVal = ref(0);
-const endVal = { value: 5000 };
-const startValTwo = ref(0);
-const endValTwo = { value: 3000 };
-const durantion = 3000;
+const startVal = ref(0)
+const endVal = { value: 5000 }
+const startValTwo = ref(0)
+const endValTwo = { value: 3000 }
+const durantion = 3000
 const test = () => {
   setTimeout(() => {
-    startVal.value = endVal.value;
-    endVal.value = Math.random() * 3000 + 1000;
-    startValTwo.value = endVal.value;
-    endValTwo.value = Math.random() * 3000 + 1000;
-    test();
-  }, 7000);
+    startVal.value = endVal.value
+    endVal.value = Math.random() * 3000 + 1000
+    startValTwo.value = endVal.value
+    endValTwo.value = Math.random() * 3000 + 1000
+    test()
+  }, 7000)
 }
 test()
 </script>
@@ -82,7 +82,7 @@ test()
     position: absolute;
     font-size: 28px;
     top: 290px;
-    color: #E0E0E0;
+    color: #C0C0C0;
   }
 }
 </style>

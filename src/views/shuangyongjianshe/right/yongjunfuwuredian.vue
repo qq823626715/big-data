@@ -4,19 +4,19 @@ import VChart from 'vue-echarts'
 import { initBubbleChart } from './utils.js'
 const str = '出行、医疗、就业、培训、住房、文旅、休闲、其他'
 const array = str.split('、')
-const arrayNumbers = ['20','30','25','20','40','25','30','20']
+const arrayNumbers = ['34','34','43','38','50','28','42','38']
 arrayNumbers.forEach((__,index) => {
   arrayNumbers[index] = Number(arrayNumbers[index]) * 1.4
 })
 const axis = [
-  [-150,-20],
-  [-90,-30],
-  [-90, 34],
-  [-37,45],
-  [-12,-20],
-  [70,-40],
-  [60, 25],
-  [120, 5]
+  [-160,-20],
+  [-90,-50],
+  [-120, 74],
+  [-37,75],
+  [-12,-10],
+  [130,-60],
+  [90, 5],
+  [150, 75]
 ]
 const data = array.map((key, index) => ({
   label: key,

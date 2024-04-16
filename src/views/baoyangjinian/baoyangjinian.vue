@@ -88,8 +88,8 @@ const title = '褒扬纪念'
 .content {
   display: flex;
   width: 100%;
-  height: 680px;
-  margin-top: 40px;
+  height: 670px;
+  margin-top: 50px;
   padding: 12px;
   border-radius: 20px;
   .wapper-contain {
@@ -111,7 +111,7 @@ const title = '褒扬纪念'
       justify-content: space-between;
       .charts-wapper {
         width: 100%;
-        height: 630px;
+        height: 620px;
         background: rgb(2, 178, 248, 0.1);
         padding: 12px;
         display: flex;
@@ -135,9 +135,9 @@ const title = '褒扬纪念'
       }
     }
     .left >div {
-      height: 230px;
+      height: 210px;
       &:first-child {
-        height: 140px
+        height: 180px
       }
     }
     .right >div {
