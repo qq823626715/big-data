@@ -13,7 +13,7 @@ const list = ref(workList)
         <a-list-item :class="{ 'line-through': item.status === '已失效' }">
           <span>时间：{{ item.time }}</span>
           <span>公司：{{ item.empName }}</span>
-          <span>职位：{{ item.empName }}</span>
+          <span>职位：{{ item.job }}</span>
           <span>结果：{{ item.status }}</span>
         </a-list-item>
       </template>

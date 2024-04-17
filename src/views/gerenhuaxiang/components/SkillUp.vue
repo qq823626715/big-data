@@ -17,7 +17,7 @@ console.log(list)
 
 <style lang="scss" scoped>
 .ant-timeline {
-  margin-top: 30px;
+  margin-top: 160px;
   color: #9FAAB4;
   font-size: 11px;
   ::v-deep .ant-timeline-item-tail{

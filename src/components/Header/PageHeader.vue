@@ -99,7 +99,7 @@ function goHome() {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('../../assets/images/header-bg.png') center center/contain no-repeat;
+    background: url('../../assets/images/header-bg.png') center center/1400px 50px no-repeat;
     opacity: 0.8;
     z-index: -1;
   }

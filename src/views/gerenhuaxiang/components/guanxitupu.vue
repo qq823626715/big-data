@@ -56,6 +56,7 @@ const option = ref({
   //   top: 'bottom',
   //   left: 'right'
   // },
+  backgroundColor: 'transparent',
   zoom: 0.2,
   center: ['50%', '50%'],
   tooltip: {

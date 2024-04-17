@@ -10,6 +10,8 @@ import InfoCard from './components/InfoCard.vue'
 import Guanxitupu from './components/guanxitupu.vue'
 import SkillUp from './components/SkillUp.vue'
 import WorkList from './components/WorkList.vue'
+import ZhiXiangFuWu from './components/ZhiXiangFuWu.vue'
+import YongJunZuJi from './components/YongJunZuJi.vue'
 import PageHeader from '../../components/Header/PageHeader.vue'
 import { SearchOutlined  } from '@ant-design/icons-vue'
 // import locale from 'ant-design-vue/es/date-picker/locale/zh_CN'
@@ -237,6 +239,16 @@ function handleWordCloundTagClick(item) {
               <WorkList />
             </div>
           </template>
+          <template v-else-if="activeChart === '智享服务'">
+            <div class="right-bottom">
+              <ZhiXiangFuWu />
+            </div>
+          </template>
+          <template v-else-if="activeChart === '拥军足迹'">
+            <div class="right-bottom">
+              <YongJunZuJi />
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -354,7 +366,7 @@ function handleWordCloundTagClick(item) {
       }
     }
     &-bottom {
-      height: 610px;
+      height: 604px;
       padding: 12px;
       .menu-box {
         height: 70px;
