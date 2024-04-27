@@ -4,7 +4,7 @@
 <script setup>
 import { ref } from 'vue'
 import { workList } from '@/data/gerenhuaxiang'
-const list = ref(workList)
+const list = ref(workList.reverse())
 </script>
 <template>
   <div>

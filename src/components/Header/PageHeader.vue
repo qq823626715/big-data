@@ -105,7 +105,7 @@ function goHome() {
   }
   .header-left {
     width: 400px;
-    color: #00d2ff;
+    color: #006076;
     padding-left: 12px;
     font-size: 13px;
   }
@@ -126,7 +126,7 @@ function goHome() {
     justify-content: flex-end;
     padding-right: 12px;
     .header-time {
-      color: #00d2ff;
+      color: #006076;
     }
   }
 }

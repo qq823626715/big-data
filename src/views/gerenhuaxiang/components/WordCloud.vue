@@ -21,7 +21,7 @@ provide(THEME_KEY, 'dark')
 
 const props = defineProps(['data'])
 
-const colors = ['rgba(101, 220, 222, 10%)', 'rgba(50, 130, 246, 10%)', 'rgba(53, 128, 187, 10%)', 'rgba(159, 252, 253, 10%)']
+const colors = ['rgba(101, 220, 222, 80%)', 'rgba(50, 130, 246, 80%)', 'rgba(53, 128, 187, 80%)', 'rgba(159, 252, 253, 80%)']
 const option = ref({
   backgroundColor: 'transparent',
   color: colors,

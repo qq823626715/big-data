@@ -81,7 +81,7 @@ const option = ref({
       tooltip: { show: false },
       label: { show: false },
       boundingCoords: [
-        [113.980412,35.557975],
+        [113.880412,35.557975],
         [125.472644,30.780706]
       ]
     },
