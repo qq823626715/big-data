@@ -4,11 +4,11 @@
     <div class="cover-left"></div>
     <div class="cover-right"></div>
     <div class="cover-top"></div>
-    <div v-if="historyRef.name" class="map-tooltip">
+    <div v-if="historyRef.name" class="map-tooltip" :class="{ 'map-tooltip-narrow': pageType === 'narrow'}">
       <div class="title">{{ historyRef.name }}</div>
       <Citycharts :city="historyRef.name" />
     </div>
-    <div class="message-rank">
+    <div class="message-rank" :class="{ 'message-rank-narrow': pageType === 'narrow'}">
       <Messagerank />
     </div>
   </div>
@@ -26,6 +26,12 @@ import Messagerank from '../components/Messagerank.vue'
 const cityStr = '苏州、无锡、常州、镇江、南京、南通、扬州、泰州、盐城、淮安、宿迁、徐州、连云港'
 const city = cityStr.split('、').map(i => i + '市')
 
+const props = defineProps({
+  pageType: {
+    type: String,
+    default: '',
+  },
+})
 echarts.registerMap('Map', xiaMenMapData)
 echarts.registerMap('chinaMap', chinaMapData)
 const option = ref({
@@ -164,6 +170,10 @@ test()
   background: linear-gradient(to bottom, rgb(3, 54, 148, 0.4),rgb(2, 178, 248, 0.2));
   top: 450px;
   right: 1700px;
+  &.map-tooltip-narrow {
+    right: 830px;
+    top: 350px;
+  }
   .title {
     width: 100%;
     height: 100px;
@@ -182,5 +192,8 @@ test()
   background: rgba(33, 156, 204, 0.2);
   bottom: 170px;
   left: 1760px;
+  &.message-rank-narrow {
+    left: 960px;
+  }
 }
 </style>

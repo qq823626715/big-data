@@ -6,6 +6,13 @@ import { RouterLink } from 'vue-router'
 
 const nowDateTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss')
 
+defineProps({
+  pageType: {
+    type: String,
+    default: ''
+  }
+})
+
 const navModel = ref()
 const modalVisible = ref(false)
 const nav = reactive({
@@ -102,7 +109,7 @@ const list = [{
 </script>
 
 <template>
-  <div class="header-container">
+  <div class="header-container" :class="{'header-container-narrow': pageType === 'narrow'}">
     <!-- 左侧 -->
     <div class="header-left">
       <div class="head-button-div">
@@ -221,6 +228,18 @@ const list = [{
       color: #00d2ff;
       font-size: 38px;
     }
+  }
+}
+.header-container-narrow {
+  height: 120px;
+  .header-left {
+    width: 860px;
+  }
+  .header-right {
+    width: 860px;
+  }
+  .header-center {
+    font-size: 48px;
   }
 }
 .nav-model {
