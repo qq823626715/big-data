@@ -22,21 +22,53 @@ import memberBg from '@/assets/images/member/member-bg.png'
 
 let autoScale = true
 // autoScale = false
-const leftViewEnum = [
-  '数据视图一',
-  '数据视图二'
+const leftViewEnum1 = [
+  '移交安置',
+  '待安置分布'
 ]
-const rightViewEnum = [
-  '数据视图一',
-  '数据视图二'
+const leftViewEnum2 = [
+  '拥军优抚',
+  '优抚对象分类TOP5'
 ]
-const leftActiveView = ref('数据视图一')
-const rightActiveView = ref('数据视图一')
-function handleLeftViewEnumClick(item) {
-  leftActiveView.value = item
+const leftViewEnum3 = [
+  '军休情况',
+  '军休变化趋势'
+]
+const rightViewEnum1 = [
+  '创业就业',
+  '就业分类'
+]
+const rightViewEnum2 = [
+  '年活动情况',
+  '年度培训情况'
+]
+const rightViewEnum3 = [
+  '诉求情况',
+  '诉求类型情况'
+]
+const leftActiveView1 = ref('移交安置')
+const leftActiveView2 = ref('拥军优抚')
+const leftActiveView3 = ref('军休情况')
+const rightActiveView1 = ref('创业就业')
+const rightActiveView2 = ref('年活动情况')
+const rightActiveView3 = ref('诉求情况')
+function handleLeftViewEnumClick(item, index) {
+  if (index === '1') {
+    leftActiveView1.value = item
+  } else if (index === '2') {
+    leftActiveView2.value = item
+  } else if (index === '3') {
+    leftActiveView3.value = item
+  }
 }
-function handleRightViewEnumClick(item) {
-  rightActiveView.value = item
+function handleRightViewEnumClick(item, index) {
+  if (index === '1') {
+    rightActiveView1.value = item
+  } else if (index === '2') {
+    rightActiveView2.value = item
+  } else if (index === '3') {
+    rightActiveView3.value = item
+  }
 }
 </script>
 
@@ -64,48 +96,61 @@ function handleRightViewEnumClick(item) {
     </Header>
     <div class="content">
       <div class="left-container">
-        <div class="view-enum-box">
-          <div
-            v-for="item in leftViewEnum"
-            :key="item"
-            class="view-tab"
-            :class="{ 'active': item === leftActiveView }"
-            @click="handleLeftViewEnumClick(item)"
-          >{{ item }}</div>
-        </div>
-        <div class="wrapper-flex-box" :class="{'tab-right' : leftActiveView === '数据视图二'}">
-          <div class="wrapper-item left-wrapper-one">
-            <WrapperTitle title="移交安置" />
+        <div class="wrapper-item left-wrapper-one">
+          <WrapperTitle :title="leftActiveView1" />
+          <div class="view-enum-box">
+            <div
+              v-for="item in leftViewEnum1"
+              :key="item"
+              class="view-tab"
+              :class="{ 'active': item === leftActiveView1 }"
+              @click="handleLeftViewEnumClick(item, '1')"
+            >{{ item }}</div>
+          </div>
+          <div class="wrapper-flex-box" :class="{'tab-right' : leftActiveView1 === leftViewEnum1[1]}">
             <div class="wrapper-content">
               <Yijiaoanzhi />
             </div>
-          </div>
-          <div class="wrapper-item left-wrapper-one">
-            <WrapperTitle  title="待安置分布" />
             <div class="wrapper-content">
               <Daianzhirenyuan />
             </div>
           </div>
-          <div class="wrapper-item left-wrapper-two">
-            <WrapperTitle title="拥军优抚" />
+        </div>
+        <div class="wrapper-item left-wrapper-two">
+          <WrapperTitle :title="leftActiveView2" />
+          <div class="view-enum-box">
+            <div
+              v-for="item in leftViewEnum2"
+              :key="item"
+              class="view-tab"
+              :class="{ 'active': item === leftActiveView2 }"
+              @click="handleLeftViewEnumClick(item, '2')"
+            >{{ item }}</div>
+          </div>
+          <div class="wrapper-flex-box" :class="{'tab-right' : leftActiveView2 === leftViewEnum2[1]}">
             <div class="wrapper-content">
               <Yongjunyoufu />
             </div>
-          </div>
-          <div class="wrapper-item left-wrapper-two">
-            <WrapperTitle title="优抚对象分类TOP5" :style="{ backgroundSize: '115% 144%', }" />
             <div class="wrapper-content">
               <Youfuduixiangleixing />
             </div>
           </div>
-          <div class="wrapper-item left-wrapper-two">
-            <WrapperTitle title="军休情况" />
+        </div>
+        <div class="wrapper-item left-wrapper-two">
+          <WrapperTitle :title="leftActiveView3" />
+          <div class="view-enum-box">
+            <div
+              v-for="item in leftViewEnum3"
+              :key="item"
+              class="view-tab"
+              :class="{ 'active': item === leftActiveView3 }"
+              @click="handleLeftViewEnumClick(item, '3')"
+            >{{ item }}</div>
+          </div>
+          <div class="wrapper-flex-box" :class="{'tab-right' : leftActiveView3 === leftViewEnum3[1]}">
             <div class="wrapper-content">
               <Junxiuqingkuang />
             </div>
-          </div>
-          <div class="wrapper-item left-wrapper-two">
-            <WrapperTitle title="军休变化趋势" :style="{ backgroundSize: '110% 144%', }" />
             <div class="wrapper-content">
               <Junxiurenyuanbianhuaqushi />
             </div>
@@ -113,57 +158,71 @@ function handleRightViewEnumClick(item) {
         </div>
       </div>
       <div class="center-container">
-        <MemberDatas />
+        <MemberDatas pageType="narrow"/>
         <MemberHeatMap pageType="narrow"/>
       </div>
       <div class="right-container">
-        <div class="view-enum-box">
-          <div
-            v-for="item in rightViewEnum"
-            :key="item"
-            class="view-tab"
-            :class="{ 'active': item === rightActiveView }"
-            @click="handleRightViewEnumClick(item)"
-          >{{ item }}</div>
-        </div>
-        <div class="wrapper-flex-box" :class="{'tab-right' : rightActiveView === '数据视图二'}">
+        <!-- <div class="wrapper-flex-box" :class="{'tab-right' : rightActiveView === '数据视图二'}"> -->
           <div class="wrapper-item right-wrapper-one">
-            <WrapperTitle title="创业就业" />
-            <div class="wrapper-content">
-              <Chuanyejiuye />
+            <WrapperTitle :title="rightActiveView1" />
+            <div class="view-enum-box">
+              <div
+                v-for="item in rightViewEnum1"
+                :key="item"
+                class="view-tab"
+                :class="{ 'active': item === rightActiveView1 }"
+                @click="handleRightViewEnumClick(item, '1')"
+              >{{ item }}</div>
             </div>
-          </div>
-          <div class="wrapper-item right-wrapper-one">
-            <WrapperTitle title="就业分类" />
-            <div class="wrapper-content">
-              <Chuanjiuyerenyuanleixing />
+            <div class="wrapper-flex-box" :class="{'tab-right' : rightActiveView1 === rightViewEnum1[1]}">
+              <div class="wrapper-content">
+                <Chuanyejiuye />
+              </div>
+              <div class="wrapper-content">
+                <Chuanjiuyerenyuanleixing />
+              </div>
             </div>
           </div>
           <div class="wrapper-item right-wrapper-two">
-            <WrapperTitle title="年活动情况" />
-            <div class="wrapper-content">
-              <Nianduhuodongqingkuang />
+            <WrapperTitle :title="rightActiveView2" />
+            <div class="view-enum-box">
+              <div
+                v-for="item in rightViewEnum2"
+                :key="item"
+                class="view-tab"
+                :class="{ 'active': item === rightActiveView2 }"
+                @click="handleRightViewEnumClick(item, '2')"
+              >{{ item }}</div>
             </div>
-          </div>
-          <div class="wrapper-item right-wrapper-two">
-            <WrapperTitle title="年度培训情况" />
-            <div class="wrapper-content">
-              <Niandupeixunqingkuang  />
+            <div class="wrapper-flex-box" :class="{'tab-right' : rightActiveView2 === rightViewEnum2[1]}">
+              <div class="wrapper-content">
+                <Nianduhuodongqingkuang />
+              </div>
+              <div class="wrapper-content">
+                <Niandupeixunqingkuang  />
+              </div>
             </div>
           </div>
           <div class="wrapper-item right-wrapper-three">
-            <WrapperTitle title="诉求情况" />
-            <div class="wrapper-content">
-              <Xingfangqingkuang />
+            <WrapperTitle :title="rightActiveView3" />
+            <div class="view-enum-box">
+              <div
+                v-for="item in rightViewEnum3"
+                :key="item"
+                class="view-tab"
+                :class="{ 'active': item === rightActiveView3 }"
+                @click="handleRightViewEnumClick(item, '3')"
+              >{{ item }}</div>
+            </div>
+            <div class="wrapper-flex-box" :class="{'tab-right' : rightActiveView3 === rightViewEnum3[1]}">
+              <div class="wrapper-content">
+                <Xingfangqingkuang />
+              </div>
+              <div class="wrapper-content">
+                <Xinfangsuqiuleixingqingkuang />
+              </div>
             </div>
           </div>
-          <div class="wrapper-item right-wrapper-three">
-            <WrapperTitle title="诉求类型情况" :style="{ backgroundSize: '110% 144%', }" />
-            <div class="wrapper-content">
-              <Xinfangsuqiuleixingqingkuang />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </v-scale-screen>
@@ -189,21 +248,24 @@ function handleRightViewEnumClick(item) {
   width: 800px;
   min-width: 800px;
   height: 100%;
-  margin-top: 200px;
+  margin-top: 140px;
   overflow: hidden;
   // border: 1px solid red;
   padding: 36px;
+  .wrapper-item {
+    width: 100%;
+  }
 }
 .wrapper-flex-box {
   display: flex;
   flex-wrap: wrap;
-  width: 1600px;
+  width: 1456px;
   transition: all 0.5s linear;
   &.tab-right {
-    transform: translateX(-800px);
+    transform: translateX(-728px);
   }
-  .wrapper-item {
-    width: 48%;
+  .wrapper-content {
+    width: 728px;
   }
 }
 .left-container {
@@ -214,18 +276,18 @@ function handleRightViewEnumClick(item) {
 }
 .view-enum-box {
   display: flex;
-  justify-self: flex-start;
+  justify-content: center;
   align-items: center;
   .view-tab {
     background-color: #1E355E;
-    height: 56px;
-    line-height: 56px;
+    height: 42px;
+    line-height: 42px;
     width: 160px;
     text-align: center;
     color: #9FAAB4;
-    margin-left: 20px;
-    border-radius: 8px;
-    font-size: 22px;
+    margin-left: 15px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
     &.active {
       background-color: #0E3C8A;

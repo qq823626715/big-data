@@ -140,7 +140,7 @@ test();
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -45px;
-  margin-bottom: 36px;
+  margin-top: -9px;
+  margin-bottom: 0;
 }
 </style>

@@ -1,9 +1,11 @@
 <script setup>
+import { toRefs } from 'vue'
 // import titleBg from '@/assets/images/title-bg.png'
 import titleBg from '@/assets/images/title-bg-new.png'
 const props = defineProps(['title', 'subtitle', 'background', 'width', 'style','titleStyle'])
 const emit = defineEmits(['click'])
-const { title, subtitle, background, width, titleStyle, style } = props
+const { title, subtitle, titleStyle, style } = toRefs(props)
+const { background, width } = props
 
 const _background = background ? `url(${background})` : `url(${titleBg})`
 const _width = width ? width : '100%'

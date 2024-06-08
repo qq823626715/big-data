@@ -8,7 +8,12 @@ const datas = reactive({
   dateAdd: null,
   memberNum: null,
 })
-
+defineProps({
+  pageType: {
+    type: String,
+    default: ''
+  }
+})
 getRetailMember().then(({ code, data }) => {
   if (code === 200 && data) {
     datas.retail = data.retail.toString()
@@ -33,7 +38,7 @@ test()
 </script>
 
 <template>
-  <div class="datas-wrapper">
+  <div class="datas-wrapper" :class="{ 'datas-wrapper-narrow': pageType === 'narrow'}">
     <div class="wrapper-center">
       <div class="wrapper-left">
         <img class="border-image" src="../../../assets/images/border-left.png" />
@@ -204,6 +209,11 @@ test()
       height: 70%;
       margin: auto 50px;
     }
+  }
+}
+.datas-wrapper.datas-wrapper-narrow {
+  .wrapper-center .center-row-two .member-data-item {
+    width: 450px;
   }
 }
 </style>

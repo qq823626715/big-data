@@ -237,6 +237,7 @@ const list = [{
   }
   .header-right {
     width: 860px;
+    padding-top: 65px;
   }
   .header-center {
     font-size: 48px;
