@@ -254,6 +254,7 @@ function handleRightViewEnumClick(item, index) {
   padding: 36px;
   .wrapper-item {
     width: 100%;
+    overflow: hidden;
   }
 }
 .wrapper-flex-box {

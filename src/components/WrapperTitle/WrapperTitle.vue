@@ -2,13 +2,14 @@
 import { toRefs } from 'vue'
 // import titleBg from '@/assets/images/title-bg.png'
 import titleBg from '@/assets/images/title-bg-new.png'
-const props = defineProps(['title', 'subtitle', 'background', 'width', 'style','titleStyle'])
+const props = defineProps(['title', 'subtitle', 'background', 'width', 'style','titleStyle', 'bgWidth'])
 const emit = defineEmits(['click'])
 const { title, subtitle, titleStyle, style } = toRefs(props)
-const { background, width } = props
+const { background, width, bgWidth } = props
 
 const _background = background ? `url(${background})` : `url(${titleBg})`
 const _width = width ? width : '100%'
+const _bgWidth = bgWidth ? bgWidth : '100%'
 
 const subtitleClick = () => {
   emit('click')
@@ -45,7 +46,7 @@ const subtitleClick = () => {
     right: 0;
     bottom: 0;
     left: 0;
-    background: v-bind('_background') center bottom/100% 50px no-repeat;
+    background: v-bind('_background') left bottom/v-bind('_bgWidth') 50px no-repeat;
     // background-repeat: no-repeat;
     // background-size: cover;
     opacity: 0.4;

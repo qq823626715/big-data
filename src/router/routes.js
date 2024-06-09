@@ -55,6 +55,11 @@ const routes = [
     name: 'shuangyongjianshe',
     component: () => import('../views/shuangyongjianshe/shuangyongjianshe.vue'),
   },
+  {
+    path: '/yijianshi',
+    name: 'yijianshi',
+    component: () => import('../views/yijianshi/yijianshi.vue'),
+  },
 ]
 
 export default routes
