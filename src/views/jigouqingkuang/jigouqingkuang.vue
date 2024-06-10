@@ -1,5 +1,5 @@
 <!--
- * @Description: 退役军人办理一件事
+ * @Description: 机构情况
 -->
 <script setup>
 import { ref } from 'vue'
@@ -14,7 +14,7 @@ import MemberDatas from './components/MemberDatas.vue'
 import masker from '@/assets/images/masker.png'
 import memberBg from '@/assets/images/member/member-bg.png'
 
-let autoScale = true
+const autoScale = true
 const bgWidth = '140%'
 const viewEnum = [
   '士兵',
@@ -51,19 +51,19 @@ function handleViewEnumClick(item) {
     <div class="content">
       <div class="left-container">
         <div class="wrapper-item left-wrapper-one">
-          <WrapperTitle title="一件事办结数量统计" :bgWidth="bgWidth" />
+          <WrapperTitle title="机构数量层级分布" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <BanJieShuLiangTongJi />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="一件事办结时长统计" :bgWidth="bgWidth" />
+          <WrapperTitle title="关爱退役军人基金会" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <BanJieShiChangTongJi />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="一件事办理方式统计" :bgWidth="bgWidth"  />
+          <WrapperTitle title="工作人员类型分布" :bgWidth="bgWidth"  />
           <div class="wrapper-content">
             <BanLiFangShiTongJi />
           </div>
@@ -75,7 +75,7 @@ function handleViewEnumClick(item) {
       </div>
       <div class="right-container">
         <div class="wrapper-item right-wrapper-one">
-          <WrapperTitle title="一件事办理类型分析(士兵)" :bgWidth="bgWidth" />
+          <WrapperTitle title="工作人员学历情况" :bgWidth="bgWidth" />
           <div class="wrapper-content flex-box">
             <div class="num-box">
               <p class="data-item">总数：<br/><span class="data-item-number2">11193</span>件</p>
@@ -87,14 +87,14 @@ function handleViewEnumClick(item) {
           </div>
         </div>
         <div class="wrapper-item right-wrapper-two">
-          <WrapperTitle title="一件事办理类型分析(军官)" :bgWidth="bgWidth" />
+          <WrapperTitle title="红色服务站" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <div class="data-item">办结数量/总数：<span class="data-item-number">4/5件</span></div>
             <BanLiLeiXingFenXiJunGuan  />
           </div>
         </div>
         <div class="wrapper-item right-wrapper-three">
-          <WrapperTitle title="各类型办结时长分析" :bgWidth="bgWidth" />
+          <WrapperTitle title="全省示范创建总体情况" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <div class="view-enum-box">
               <div
