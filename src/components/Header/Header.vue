@@ -45,6 +45,18 @@ const nav = reactive({
     {
       name: '就业创业',
       routePath: '/jiuyechuanye'
+    },
+    {
+      name: '一张图',
+      routePath: '/yizhangtu'
+    },
+    {
+      name: '一件事',
+      routePath: '/yijianshi'
+    },
+    {
+      name: '服务站',
+      routePath: '/fuwuzhan'
     }
   ],
 })
@@ -250,8 +262,8 @@ const list = [{
   z-index: 99;
   padding: 18px;
   width: 358px;
-  height: 627px;
-  background: url('../../assets/images/nav-bg.png') center center/100% 627px no-repeat;
+  height: 857px;
+  background: url('../../assets/images/nav-bg.png') center center/100% 927px no-repeat;
   .nav-list {
     list-style: none;
     margin: 0;

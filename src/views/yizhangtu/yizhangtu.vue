@@ -2,21 +2,20 @@
 import pageBg from '@/assets/images/pageBg.png'
 import PageHeader from '../../components/Header/PageHeader.vue'
 import WapperTitle from './wapperTitle.vue'
-import jiniansheshi from './left/jiniansheshi.vue'
-import jinianshishefenji from './left/jinianshishefenji.vue'
-import lieshifenlei from './left/lieshifenlei.vue'
+import FuWuSheShi from './left/FuWuSheShi.vue'
+import KunNanBangFuZouFang from './left/KunNanBangFuZouFang.vue'
+import XiangMuZiJin from './left/XiangMuZiJin.vue'
 
-import jinianhuodongrenci from './right/jinianhuodongrenci.vue'
-import jinianhuodongleixin from './right/jinianhuodongleixin.vue'
-import Citycharts from './right/Citycharts.vue'
+import XingFangShiJian from './right/XingFangShiJian.vue'
+import XinFangLeiBiao from './right/XinFangLeiBiao.vue'
 
-import MemberDatas from './center/MemberDatas.vue'
 import MemberHeatMap from './center/MemberHeatMap.vue'
+import { CountTo } from 'vue3-count-to'
 
 const autoScale = true
 // const autoScale = false
 
-const title = '褒扬纪念'
+const title = '一张图'
 </script>
 
 <template>
@@ -46,37 +45,43 @@ const title = '褒扬纪念'
       <div class="wapper-contain">
         <div class="left">
           <div>
-            <WapperTitle :title="'纪念设施'" />
-            <jiniansheshi />
+            <WapperTitle title="服务设施统计" />
+            <FuWuSheShi />
           </div>
           <div>
-            <WapperTitle :title="'纪念设施分级'" />
-            <jinianshishefenji />
+            <WapperTitle title="困难帮扶走访" />
+            <div class="data-item">
+              <span class="data-item-title">累积走访次数</span>
+              <span class="data-item-number">
+                <CountTo :startVal="0" :endVal="62302" :durantion="durantion"></CountTo>
+              </span>
+            </div>
+            <KunNanBangFuZouFang />
           </div>
           <div>
-            <WapperTitle :title="'烈士分类'" />
-            <lieshifenlei />
+            <WapperTitle title="项目资金" />
+            <div class="data-item">
+              <span class="data-item-title">专项资金项目总数</span>
+              <span class="data-item-number">
+                <CountTo :startVal="0" :endVal="10719" :durantion="durantion"></CountTo>
+              </span>
+            </div>
+            <XiangMuZiJin />
           </div>
         </div>
         <div class="center">
           <div class="charts-wapper">
-            <WapperTitle :title="'纪念活动'" />
-            <MemberDatas />
             <MemberHeatMap />
           </div>
         </div>
         <div class="right">
-          <div>
-            <WapperTitle :title="'纪念活动人次'" />
-            <jinianhuodongrenci />
+          <div class="right-first">
+            <WapperTitle title="信访事件统计" />
+            <XingFangShiJian />
           </div>
-          <div>
-            <WapperTitle :title="'纪念活动类型'" />
-            <jinianhuodongleixin />
-          </div>
-          <div>
-            <WapperTitle :title="'参加培训情况'" />
-            <Citycharts />
+          <div class="right-second">
+            <WapperTitle title="全部信访事件" />
+            <XinFangLeiBiao />
           </div>
         </div>
       </div>
@@ -140,8 +145,27 @@ const title = '褒扬纪念'
         height: 180px
       }
     }
-    .right >div {
-      height: 200px;
+    .right {
+      .right-first {
+        height: 120px;
+      }
+      .right-second {
+        height: 485px;
+      }
+    }
+  }
+  .data-item {
+    width: 100%;
+    .data-item-title {
+      display: inline-block;
+      font-size: 10px;
+      color: #00d2ff;
+      margin-right: 4px;
+    }
+    .data-item-number {
+      color: #f1ba3f;
+      font-size: 14px;
+      margin: 0;
     }
   }
 }

@@ -4,13 +4,6 @@
     <div class="cover-left"></div>
     <div class="cover-right"></div>
     <div class="cover-top"></div>
-    <!-- <div v-if="historyRef.name" class="map-tooltip">
-      <div class="title">{{ historyRef.name }}</div>
-      <Citycharts :city="historyRef.name" />
-    </div>
-    <div class="message-rank">
-      <Messagerank />
-    </div> -->
   </div>
 </template>
 
@@ -20,8 +13,6 @@ import VChart from 'vue-echarts'
 import * as echarts from 'echarts/index.blank'
 import xiaMenMapData from '@/assets/map/jiangsu.json'
 import chinaMapData from '@/assets/map/china_new.json'
-// import Citycharts from './Citycharts.vue'
-// import Messagerank from './Messagerank.vue'
 
 const cityStr = '苏州、无锡、常州、镇江、南京、南通、扬州、泰州、盐城、淮安、宿迁、徐州、连云港'
 const city = cityStr.split('、').map(i => i + '市')
@@ -92,135 +83,16 @@ const option = ref({
   ],
   legend: {
     bottom: '20px',
+    width: '350px',
     zlevel: 3,
     textStyle: { color: '#E0E0E0' },
-    data: ['纪念设施', '烈士陵园', '烈士墓', '陵园外烈士墓', '纪念活动']
+    data: ['退役军人', '信访事件', '服务中心站', '服务保障机构', '军休机构', '军供站', '资金项目']
   },
-  color: ['#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452'],
+  color: ['#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#3ba172', '#fc8352'],
   series: [
     {
       type: 'scatter',
-      name: '纪念设施',
-      symbolSize: 6,
-      zlevel: 3,
-      coordinateSystem: 'geo',
-      label: {
-        show: false
-      },
-      geoIndex: 1,
-      tooltip: {
-        show: true
-      },
-      labelLine: { show: true },
-      encode: {
-        label: [0],
-        tooltip: [0,1],
-        lng: 2,
-        lat: 3
-      },
-      data: [
-        ['纪念设施', '免费', 120.437895, 33.633365],
-        ['纪念设施', '免费', 118.837129, 33.161133],
-        ['纪念设施', '免费', 120.102817, 32.555716],
-        ['纪念设施', '免费', 120.504219, 31.416964],
-        ['纪念设施', '免费', 119.291211, 32.456849],
-        ['纪念设施', '免费', 120.182558, 31.163505]
-      ]
-    },
-    {
-      show: false,
-      type: 'scatter',
-      name: '烈士陵园',
-      symbolSize: 6,
-      zlevel: 3,
-      coordinateSystem: 'geo',
-      label: {
-        show: false
-      },
-      geoIndex: 1,
-      tooltip: {
-        show: true
-      },
-      labelLine: { show: true },
-      encode: {
-        label: [0],
-        tooltip: [0,1],
-        lng: 2,
-        lat: 3
-      },
-      data: [
-        ['烈士陵园', '免费', 118.803895, 34.163765],
-        ['烈士陵园', '免费', 119.807129, 33.049133],
-        ['烈士陵园', '免费', 120.802827, 32.955716],
-        ['烈士陵园', '免费', 121.104219, 32.461964],
-        ['烈士陵园', '免费', 118.891611, 31.856849],
-        ['烈士陵园', '免费', 121.719558, 31.665005]
-      ]
-    },
-    {
-      show: false,
-      type: 'scatter',
-      name: '烈士墓',
-      symbolSize: 6,
-      zlevel: 3,
-      coordinateSystem: 'geo',
-      label: {
-        show: false
-      },
-      geoIndex: 1,
-      tooltip: {
-        show: true
-      },
-      labelLine: { show: true },
-      encode: {
-        label: [0],
-        tooltip: [0,1],
-        lng: 2,
-        lat: 3
-      },
-      data: [
-        ['烈士墓1', '免费', 119.803895, 32.955765],
-        ['烈士墓2', '免费', 118.807129, 33.061133],
-        ['烈士墓3', '免费', 120.902817, 32.955716],
-        ['烈士墓4', '免费', 120.122159, 32.469164],
-        ['烈士墓5', '免费', 120.895151, 31.553489],
-        ['烈士墓6', '免费', 120.789558, 31.826505]
-      ]
-    },
-    {
-      show: false,
-      type: 'scatter',
-      name: '陵园外烈士墓',
-      symbolSize: 6,
-      zlevel: 3,
-      coordinateSystem: 'geo',
-      label: {
-        show: false
-      },
-      geoIndex: 1,
-      tooltip: {
-        show: true
-      },
-      labelLine: { show: true },
-      encode: {
-        label: [0],
-        tooltip: [0,1],
-        lng: 2,
-        lat: 3
-      },
-      data: [
-        ['陵园外烈士墓', '免费', 118.803895, 34.623765],
-        ['陵园外烈士墓', '免费', 119.807129, 33.061213],
-        ['陵园外烈士墓', '免费', 120.802517, 32.955716],
-        ['陵园外烈士墓', '免费', 121.104319, 32.42364],
-        ['陵园外烈士墓', '免费', 118.893211, 31.851149],
-        ['陵园外烈士墓', '免费', 121.789258, 31.996505]
-      ]
-    },
-    {
-      show: false,
-      type: 'scatter',
-      name: '纪念活动',
+      name: '退役军人',
       symbolSize: 6,
       zlevel: 3,
       coordinateSystem: 'geo',
@@ -235,16 +107,196 @@ const option = ref({
       encode: {
         label: [0],
         tooltip: [0],
-        lng: 2,
-        lat: 3
+        lng: 1,
+        lat: 2
       },
       data: [
-        ['纪念活动', '免费', 118.813895, 34.043765],
-        ['纪念活动', '免费', 119.802129, 33.061233],
-        ['纪念活动', '免费', 120.802217, 32.955716],
-        ['纪念活动', '免费', 121.105219, 32.42964],
-        ['纪念活动', '免费', 118.891311, 31.256849],
-        ['纪念活动', '免费', 121.782558, 31.861505]
+        ['退役军人', 120.437895, 33.633365],
+        ['退役军人', 118.837129, 33.161133],
+        ['退役军人', 120.102817, 32.555716],
+        ['退役军人', 120.504219, 31.416964],
+        ['退役军人', 119.291211, 32.456849],
+        ['退役军人', 120.182558, 31.163505]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '信访事件',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['信访事件', 118.803895, 34.163765],
+        ['信访事件', 119.807129, 33.049133],
+        ['信访事件', 120.802827, 32.955716],
+        ['信访事件', 121.104219, 32.461964],
+        ['信访事件', 118.891611, 31.856849],
+        ['信访事件', 121.719558, 31.665005]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '服务中心站',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['服务中心站1', 119.803895, 32.955765],
+        ['服务中心站2', 118.807129, 33.061133],
+        ['服务中心站3', 120.902817, 32.955716],
+        ['服务中心站4', 120.122159, 32.469164],
+        ['服务中心站5', 120.895151, 31.553489],
+        ['服务中心站6', 120.789558, 31.826505]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '服务保障机构',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['服务保障机构', 118.803895, 34.623765],
+        ['服务保障机构', 119.807129, 33.061213],
+        ['服务保障机构', 120.802517, 32.955716],
+        ['服务保障机构', 121.104319, 32.42364],
+        ['服务保障机构', 118.893211, 31.851149],
+        ['服务保障机构', 121.789258, 31.996505]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '军休机构',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['军休机构', 118.813895, 34.043765],
+        ['军休机构', 119.802129, 33.061233],
+        ['军休机构', 120.802217, 32.955716],
+        ['军休机构', 121.105219, 32.42964],
+        ['军休机构', 118.891311, 31.256849],
+        ['军休机构', 121.782558, 31.861505]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '军供站',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['军供站', 118.813795, 34.042765],
+        ['军供站', 119.803129, 33.061213],
+        ['军供站', 120.802387, 32.951716],
+        ['军供站', 121.105279, 32.42764],
+        ['军供站', 118.891611, 31.256449],
+        ['军供站', 121.781558, 31.861405]
+      ]
+    },
+    {
+      show: false,
+      type: 'scatter',
+      name: '资金项目',
+      symbolSize: 6,
+      zlevel: 3,
+      coordinateSystem: 'geo',
+      label: {
+        show: false
+      },
+      geoIndex: 1,
+      tooltip: {
+        show: true
+      },
+      labelLine: { show: true },
+      encode: {
+        label: [0],
+        tooltip: [0],
+        lng: 1,
+        lat: 2
+      },
+      data: [
+        ['资金项目', 118.813195, 34.045765],
+        ['资金项目', 119.802529, 33.061733],
+        ['资金项目', 120.812217, 32.951716],
+        ['资金项目', 121.115219, 32.22964],
+        ['资金项目', 118.895311, 31.216849],
+        ['资金项目', 121.684558, 31.861905]
       ]
     }
   ],
@@ -273,7 +325,7 @@ const randomCity = () => {
   chartRef.value.dispatchAction({
     type: 'legendSelect',
     // 图例名称
-    name: '纪念设施'
+    name: '退役军人'
   })
   historyRef.name = name
 }
