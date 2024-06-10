@@ -65,6 +65,12 @@ const routes = [
     name: 'jigouqingkuang',
     component: () => import('../views/jigouqingkuang/jigouqingkuang.vue'),
   },
+  {
+    path: '/xinfangzoufang',
+    name: 'xinfangzoufang',
+    meta: { title: '信访走访' },
+    component: () => import('../views/xinfangzoufang/xinfangzoufang.vue'),
+  },
 ]
 
 export default routes
