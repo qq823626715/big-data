@@ -61,15 +61,15 @@ const routes = [
     component: () => import('../views/yijianshi/yijianshi.vue'),
   },
   {
-    path: '/jigouqingkuang',
-    name: 'jigouqingkuang',
-    component: () => import('../views/jigouqingkuang/jigouqingkuang.vue'),
+    path: '/fuwuzhan',
+    name: 'fuwuzhan',
+    component: () => import('../views/fuwuzhan/fuwuzhan.vue'),
   },
   {
-    path: '/xinfangzoufang',
-    name: 'xinfangzoufang',
-    meta: { title: '信访走访' },
-    component: () => import('../views/xinfangzoufang/xinfangzoufang.vue'),
+    path: '/yizhangtu',
+    name: 'yizhangtu',
+    meta: { title: '一张图' },
+    component: () => import('../views/yizhangtu/yizhangtu.vue'),
   },
 ]
 
