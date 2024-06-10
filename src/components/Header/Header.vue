@@ -245,8 +245,8 @@ const list = [{
 }
 .nav-model {
   position: fixed;
-  top: 160px;
-  left: 1055px;
+  top: 120px;
+  left: 500px;
   z-index: 99;
   padding: 18px;
   width: 358px;

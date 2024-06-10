@@ -1,14 +1,17 @@
 <!--
- * @Description: 机构情况
+ * @Description: 工作人员年龄
 -->
 <script setup>
 import { ref } from 'vue'
-import BanJieShuLiangTongJi from './components/BanJieShuLiangTongJi.vue'
-import BanJieShiChangTongJi from './components/BanJieShiChangTongJi.vue'
-import BanLiFangShiTongJi from './components/BanLiFangShiTongJi.vue'
-import BanJieShiChangFenXi from './components/BanJieShiChangFenXi.vue'
-import BanLiLeiXingFenXiJunGuan from './components/BanLiLeiXingFenXiJunGuan.vue'
-import BanLiLeiXingFenXiShiBing from './components/BanLiLeiXingFenXiShiBing.vue'
+import JiGouShuLiangCengJiFenBu from './components/JiGouShuLiangCengJiFenBu.vue'
+
+import GuanAiTuiYiJunRenJiJinHui from './components/GuanAiTuiYiJunRenJiJinHui.vue'
+import GongZuoRenYuanLeiXingFenBu from './components/GongZuoRenYuanLeiXingFenBu.vue'
+import ShiFanChuangJianZongTiQingKuang from './components/ShiFanChuangJianZongTiQingKuang.vue'
+import HongSeFuWuZhan from './components/HongSeFuWuZhan.vue'
+import GongZuoRenYuanXueLiQingKuang from './components/GongZuoRenYuanXueLiQingKuang.vue'
+import GongZuoRenYuanNianLing from './components/GongZuoRenYuanNianLing.vue'
+import GongZuoRenYuanDiQuFenBu from './components/GongZuoRenYuanDiQuFenBu.vue'
 import MemberHeatMap from './components/MemberHeatMap.vue'
 import MemberDatas from './components/MemberDatas.vue'
 import masker from '@/assets/images/masker.png'
@@ -16,14 +19,7 @@ import memberBg from '@/assets/images/member/member-bg.png'
 
 const autoScale = true
 const bgWidth = '140%'
-const viewEnum = [
-  '士兵',
-  '军官'
-]
-const activeView = ref('士兵')
-function handleViewEnumClick(item) {
-  activeView.value = item
-}
+
 </script>
 
 <template>
@@ -53,19 +49,25 @@ function handleViewEnumClick(item) {
         <div class="wrapper-item left-wrapper-one">
           <WrapperTitle title="机构数量层级分布" :bgWidth="bgWidth" />
           <div class="wrapper-content">
-            <BanJieShuLiangTongJi />
+            <JiGouShuLiangCengJiFenBu />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
           <WrapperTitle title="关爱退役军人基金会" :bgWidth="bgWidth" />
           <div class="wrapper-content">
-            <BanJieShiChangTongJi />
+            <GuanAiTuiYiJunRenJiJinHui />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
           <WrapperTitle title="工作人员类型分布" :bgWidth="bgWidth"  />
           <div class="wrapper-content">
-            <BanLiFangShiTongJi />
+            <GongZuoRenYuanLeiXingFenBu />
+          </div>
+        </div>
+        <div class="wrapper-item left-wrapper-two">
+          <WrapperTitle title="工作人员地区分布" :bgWidth="bgWidth"  />
+          <div class="wrapper-content">
+            <GongZuoRenYuanDiQuFenBu class="map-bar-charts"/>
           </div>
         </div>
       </div>
@@ -76,36 +78,26 @@ function handleViewEnumClick(item) {
       <div class="right-container">
         <div class="wrapper-item right-wrapper-one">
           <WrapperTitle title="工作人员学历情况" :bgWidth="bgWidth" />
-          <div class="wrapper-content flex-box">
-            <div class="num-box">
-              <p class="data-item">总数：<br/><span class="data-item-number2">11193</span>件</p>
-              <p class="data-item">办结数量：<br/><span class="data-item-number2">10068</span>件</p>
-            </div>
-            <div class="cahrt-box">
-              <BanLiLeiXingFenXiShiBing />
-            </div>
+          <div class="wrapper-content">
+            <GongZuoRenYuanXueLiQingKuang />
           </div>
         </div>
         <div class="wrapper-item right-wrapper-two">
-          <WrapperTitle title="红色服务站" :bgWidth="bgWidth" />
+          <WrapperTitle title="红色服务站" />
           <div class="wrapper-content">
-            <div class="data-item">办结数量/总数：<span class="data-item-number">4/5件</span></div>
-            <BanLiLeiXingFenXiJunGuan  />
+            <HongSeFuWuZhan  />
           </div>
         </div>
         <div class="wrapper-item right-wrapper-three">
           <WrapperTitle title="全省示范创建总体情况" :bgWidth="bgWidth" />
           <div class="wrapper-content">
-            <div class="view-enum-box">
-              <div
-                v-for="item in viewEnum"
-                :key="item"
-                class="view-tab"
-                :class="{ 'active': item === activeView }"
-                @click="handleViewEnumClick(item)"
-              >{{ item }}</div>
-            </div>
-            <BanJieShiChangFenXi :type="activeView" />
+            <ShiFanChuangJianZongTiQingKuang />
+          </div>
+        </div>
+        <div class="wrapper-item right-wrapper-two">
+          <WrapperTitle title="工作人员年龄段情况" :bgWidth="bgWidth" />
+          <div class="wrapper-content">
+            <GongZuoRenYuanNianLing  />
           </div>
         </div>
       </div>
@@ -132,7 +124,7 @@ function handleViewEnumClick(item) {
   z-index: 3;
   width: 800px;
   min-width: 800px;
-  height: 100%;
+  height: 1872px; // 2060 - 24 - 24 - 140
   margin-top: 140px;
   overflow: hidden;
   // border: 1px solid red;
@@ -211,5 +203,4 @@ function handleViewEnumClick(item) {
   color: #f1ba3f;
   font-size: 26px;
 }
-
 </style>

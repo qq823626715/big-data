@@ -1,3 +1,6 @@
+<!--
+ * @Description: 工作人员年龄段情况
+-->
 <script setup>
 import { ref, reactive, provide } from 'vue'
 import VChart, { THEME_KEY } from 'vue-echarts'
@@ -16,18 +19,22 @@ const chartData = reactive({
 })
 const option = ref({
   backgroundColor: 'transparent',
+  legend: {
+    data: ['人数']
+  },
   xAxis: {
     type: 'category',
-    data: ['在职', '下岗', '无业', '离休', '创业', '务农', '学生'],
+    data: ['20岁以下', '20-35岁', '36-40岁', '41-45岁', '45岁以上'],
     axisLabel: {
-      fontSize: 24
+      fontSize: 22
     }
   },
   yAxis: {
     type: 'value',
     splitLine: { show: false },
     axisLabel: {
-      fontSize: 24
+      fontSize: 22,
+      rotate: 45
     }
   },
   tooltip: {
@@ -37,15 +44,22 @@ const option = ref({
       fontSize: 26
     },
   },
+  label: {
+    show: true,
+    fontSize: 24,
+    position: 'top'
+  },
   series: [
     {
-      data: [48, 30, 35, 42, 32, 40, 28],
+      data: [32020, 77000, 68000, 20000, 10000],
       type: 'bar',
       barWidth: 32,
+      name: '人数',
       itemStyle: {
+        borderRadius: 4,
         color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
           { offset: 0, color: '#0c244d' },
-          { offset: 1, color: '#08c7f6' },
+          { offset: 1, color: '#08c7f6' }
         ])
       }
     }
@@ -57,19 +71,6 @@ setTimeout(() => {
   chartRef.value.setOption(option)
 })
 
-const setOption = () => {
-  setTimeout(() => {
-    const totalData = []
-    for (let i = 0;i < 7;i++){
-      totalData.push(Math.ceil(Math.random() * 30 + 20))
-    }
-    chartRef.value.setOption({
-      series: [{ data: totalData }]
-    });
-    setOption();
-  }, 15000)
-}
-setOption();
 </script>
 
 <template>
@@ -87,7 +88,7 @@ setOption();
 <style lang="scss" scoped>
 .chart-wrapper {
   width: 900px;
-  height: 440px;
+  height: 500px;
   margin: 0 auto;
   padding: 5px 90px 5px 20px;
   position: relative;

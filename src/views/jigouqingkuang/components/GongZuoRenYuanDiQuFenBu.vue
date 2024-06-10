@@ -1,5 +1,5 @@
 <!--
- * @Description: 办理类型分析
+ * @Description: 工作人员地区分布
 -->
 <script setup>
 import { ref, reactive, provide } from 'vue'
@@ -17,24 +17,27 @@ provide(THEME_KEY, 'dark')
 const chartData = reactive({
   list: [],
 })
+const bardata = [1230, 1400, 1600, 1540, 1800, 1930, 1650, 1060, 1210, 1660, 1270, 1170, 1070]
+
 const option = ref({
   backgroundColor: 'transparent',
   legend: {
-    data: ['已办结', '未办结']
-  },
-  yAxis: {
-    type: 'category',
-    data: ['复员', '逐月领取'],
-    axisLabel: {
-      fontSize: 20,
-      rotate: -90
-    }
+    data: ['人数']
   },
   xAxis: {
+    type: 'category',
+    data: ['南京市', '无锡市', '徐州市', '常州市', '苏州市', '南通市', '连云港市', '淮安市', '盐城市', '扬州市', '镇江市', '泰州市', '宿迁市'],
+    axisLabel: {
+      fontSize: 20,
+      rotate: 45
+    }
+  },
+  yAxis: {
     type: 'value',
+    name: '单位：人',
     splitLine: { show: false },
     axisLabel: {
-      fontSize: 20
+      fontSize: 22
     }
   },
   tooltip: {
@@ -46,24 +49,12 @@ const option = ref({
   },
   series: [
     {
-      data: [1, 4],
+      data: bardata,
       type: 'bar',
       barWidth: 24,
-      name: '已办结',
+      name: '人数',
       itemStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
-          { offset: 0, color: '#065f09' },
-          { offset: 1, color: '#0ecc13' },
-        ])
-      }
-    },
-    {
-      data: [0, 1],
-      type: 'bar',
-      barWidth: 24,
-      name: '未办结',
-      itemStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+        color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
           { offset: 0, color: '#0c244d' },
           { offset: 1, color: '#08c7f6' },
         ])
@@ -107,7 +98,7 @@ setTimeout(() => {
 <style lang="scss" scoped>
 .chart-wrapper {
   width: 900px;
-  height: 440px;
+  height: 420px;
   margin: 0 auto;
   padding: 5px 90px 5px 20px;
   position: relative;
@@ -115,5 +106,4 @@ setTimeout(() => {
   align-items: center;
   justify-content: center;
 }
-
 </style>
