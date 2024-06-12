@@ -55,7 +55,7 @@ const subtitleClick = () => {
   .title-text {
     font-size: 30px;
     color: #C0C0C0;
-    margin-left: 80px;
+    margin-left: calc(v-bind('_bgWidth') / 6);
   }
   .subtitle-text {
     font-size: 18px;

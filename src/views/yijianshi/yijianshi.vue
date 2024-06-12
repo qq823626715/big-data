@@ -77,9 +77,21 @@ function handleViewEnumClick(item) {
         <div class="wrapper-item right-wrapper-one">
           <WrapperTitle title="办理类型分析(士兵)" :bgWidth="bgWidth" />
           <div class="wrapper-content flex-box">
-            <div class="num-box">
-              <p class="data-item">总数：<br/><span class="data-item-number2">11193</span>件</p>
-              <p class="data-item">办结数量：<br/><span class="data-item-number2">10068</span>件</p>
+            <div class="content-main">
+              <div class="content-item">
+                <img class="item-image" src="@/assets/images/member/cultivate-1.png" />
+                <div class="item-text-div">
+                  <span class="item-text">创业人数</span>
+                  <span class="item-number" style="color: #23F0FF;">965人</span>
+                </div>
+              </div>
+              <div class="content-item">
+                <img class="item-image" src="@/assets/images/member/cultivate-2.png" />
+                <div class="item-text-div">
+                <span class="item-text">就业人数</span>
+                <span class="item-number" style="color: #007FFD;">2576人</span>
+                </div>
+              </div>
             </div>
             <div class="cahrt-box">
               <BanLiLeiXingFenXiShiBing />
@@ -157,21 +169,45 @@ function handleViewEnumClick(item) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  .num-box {
-    width: 120px;
-    min-width: 120px;
-      padding-left: 40px;
-    flex: 1;
-    .data-item {
-      padding-left: 0px;
-      color: #C0C0C0;
-      font-size: 26px;
-      margin-bottom: 14px;
-    }
-    .data-item-number2 {
-      color: #f1ba3f;
-      font-size: 38px;
-      margin-bottom: 14px;
+  .content-main {
+    width: 220px;
+    margin-right: -60px;
+    .content-item {
+      width: 100%;
+      height: 63px;
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+      margin: 6px;
+      margin-top: 32px;
+      justify-content: flex-start;
+      text-align: left;
+      background: linear-gradient(to bottom, rgb(3, 54, 148, 0.2),rgb(2, 178, 248, 0.1));
+      border-top: 1px solid #23F0FF;
+      border-bottom: 1px solid #23F0FF;
+      .item-image {
+        width: 59px;
+        height: 63px;
+        margin: 0 6px 0 -30px;
+      }
+      .item-number {
+        width: 70%;
+        font-size: 24px;
+        color: #23F0FF;
+      }
+      .anticon {
+        display: block;
+        font-size: 22px;
+        height: 24px;
+        line-height: 24px;
+      }
+      .item-text {
+        color: #ffffff;
+        font-size: 22px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 8px;
+      }
     }
   }
 }

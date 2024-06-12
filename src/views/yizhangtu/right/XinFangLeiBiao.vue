@@ -57,7 +57,7 @@ const dataList = ref(data)
   box-sizing: border-box;
   overflow: hidden;
   .row {
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-name: scroll;
     animation-iteration-count: infinite;
   }

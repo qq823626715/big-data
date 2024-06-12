@@ -345,7 +345,6 @@ function handleWordCloundTagClick(item) {
 
   .right {
     width: 860px;
-    border-radius: 10px;
     background: #0D2B46;
     position: relative;
     overflow: hidden;

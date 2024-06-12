@@ -43,7 +43,6 @@ defineProps({
   align-items: center;
   padding: 10px;
   background: #032039;
-  border-radius: 8px;
   border: 1px solid #284058;
   color: #FFFFFF;
   box-sizing: border-box;
