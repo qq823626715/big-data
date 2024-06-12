@@ -51,19 +51,19 @@ function handleViewEnumClick(item) {
     <div class="content">
       <div class="left-container">
         <div class="wrapper-item left-wrapper-one">
-          <WrapperTitle title="一件事办结数量统计" :bgWidth="bgWidth" />
+          <WrapperTitle title="办结数量统计" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <BanJieShuLiangTongJi />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="一件事办结时长统计" :bgWidth="bgWidth" />
+          <WrapperTitle title="办结时长统计" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <BanJieShiChangTongJi />
           </div>
         </div>
         <div class="wrapper-item left-wrapper-two">
-          <WrapperTitle title="一件事办理方式统计" :bgWidth="bgWidth"  />
+          <WrapperTitle title="办理方式统计" :bgWidth="bgWidth"  />
           <div class="wrapper-content">
             <BanLiFangShiTongJi />
           </div>
@@ -75,7 +75,7 @@ function handleViewEnumClick(item) {
       </div>
       <div class="right-container">
         <div class="wrapper-item right-wrapper-one">
-          <WrapperTitle title="一件事办理类型分析(士兵)" :bgWidth="bgWidth" />
+          <WrapperTitle title="办理类型分析(士兵)" :bgWidth="bgWidth" />
           <div class="wrapper-content flex-box">
             <div class="num-box">
               <p class="data-item">总数：<br/><span class="data-item-number2">11193</span>件</p>
@@ -87,7 +87,7 @@ function handleViewEnumClick(item) {
           </div>
         </div>
         <div class="wrapper-item right-wrapper-two">
-          <WrapperTitle title="一件事办理类型分析(军官)" :bgWidth="bgWidth" />
+          <WrapperTitle title="办理类型分析(军官)" :bgWidth="bgWidth" />
           <div class="wrapper-content">
             <div class="data-item">办结数量/总数：<span class="data-item-number">4/5件</span></div>
             <BanLiLeiXingFenXiJunGuan  />

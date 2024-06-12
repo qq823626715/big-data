@@ -1,40 +1,47 @@
 <script setup>
-import { FileOutlined } from '@ant-design/icons-vue'
+import { PieChartOutlined } from '@ant-design/icons-vue'
 </script>
 
 <template>
   <div class="content-main">
     <div class="content-item">
       <div class="content-item-title">
-        <FileOutlined />
+        <PieChartOutlined />
         <div class="item-text">诉求总量</div>
       </div>
       <div class="item-number">2368人</div>
     </div>
     <div class="content-item">
       <div class="content-item-title">
-        <FileOutlined />
+        <PieChartOutlined />
         <div class="item-text">当日总次数</div>
       </div>
       <div class="item-number">46次</div>
     </div>
     <div class="content-item">
       <div class="content-item-title">
-        <FileOutlined />
+        <PieChartOutlined />
         <div class="item-text">当日重复访</div>
       </div>
       <div class="item-number">12次</div>
     </div>
     <div class="content-item">
       <div class="content-item-title">
-        <FileOutlined />
+        <PieChartOutlined />
         <div class="item-text">当日集体访</div>
       </div>
       <div class="item-number">28次</div>
     </div>
-    <div class="content-item" style="margin-right: 34%;">
+    <div class="content-item">
       <div class="content-item-title">
-        <FileOutlined />
+        <PieChartOutlined />
+        <div class="item-text">上访总量</div>
+      </div>
+      <div class="item-number">245次</div>
+    </div>
+    <div class="content-item">
+      <div class="content-item-title">
+        <PieChartOutlined />
         <div class="item-text">当日个访</div>
       </div>
       <div class="item-number">34次</div>
@@ -55,7 +62,7 @@ import { FileOutlined } from '@ant-design/icons-vue'
     align-items: center;
     flex: 1 1 auto;
     margin: 6px;
-    margin-top: 56px;
+    margin-top: 26px;
     flex-direction: column;
     justify-content: center;
     text-align: left;
@@ -72,16 +79,26 @@ import { FileOutlined } from '@ant-design/icons-vue'
       font-size: 46px;
       color: #23F0FF;
     }
+    .anticon {
+      display: block;
+      font-size: 24px;
+      height: 24px;
+      line-height: 24px;
+    }
     .item-text {
       color: #ffffff;
+      font-size: 28px;
+      height: 32px;
+      line-height: 32px;
     }
     .content-item-title {
       width: 80%;
       display: flex;
       font-size: 28px;
       color: #00d2ff;
-      height: 50px;
-      align-items: flex-start;
+      height: 32px;
+      margin-bottom: 18px;
+      align-items: center;
       justify-content: center;
       gap: 6px;
     }

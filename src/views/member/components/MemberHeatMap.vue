@@ -129,7 +129,7 @@ test()
 
 <style lang="scss" scoped>
 .map-cover {
-  height: 100%;
+  height: 1930px;
   margin: 0;
   width: 100%;
   position: absolute;
@@ -190,7 +190,7 @@ test()
   width: 600px;
   height: 700px;
   background: rgba(33, 156, 204, 0.2);
-  bottom: 170px;
+  bottom: 0;
   left: 1760px;
   &.message-rank-narrow {
     left: 960px;

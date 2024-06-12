@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { FullscreenOutlined, FullscreenExitOutlined, PlayCircleOutlined  } from '@ant-design/icons-vue'
 import { useDateFormat, useNow, onClickOutside } from '@vueuse/core'
 import { RouterLink } from 'vue-router'
@@ -12,8 +12,9 @@ defineProps({
     default: ''
   }
 })
-
+const isFullscreen = ref(!!document.fullscreenElement)
 const navModel = ref()
+const nav2Model = ref()
 const modalVisible = ref(false)
 const nav = reactive({
   show: false,
@@ -45,7 +46,12 @@ const nav = reactive({
     {
       name: '就业创业',
       routePath: '/jiuyechuanye'
-    },
+    }
+  ],
+})
+const nav2 = reactive({
+  show: false,
+  list: [
     {
       name: '一张图',
       routePath: '/yizhangtu'
@@ -58,22 +64,39 @@ const nav = reactive({
       name: '服务站',
       routePath: '/fuwuzhan'
     }
-  ],
+  ]
 })
 
 const toggleNav = ({ name }) => {
   if (name === '主题分析') {
     nav.show = !nav.show
+  } else if (name === '重点工作') {
+    nav2.show = !nav2.show
   } else if (name === '建设成果') {
     modalVisible.value = true
   }
 }
 
+function handleFullscreen() {
+  console.log('11111')
+  isFullscreen.value = !!document.fullscreenElement
+}
+
+onMounted(() => {
+  window.addEventListener('fullscreenchange', handleFullscreen)
+})
+onUnmounted(() => {
+  window.removeEventListener('fullscreenchange', handleFullscreen)
+})
+
 onClickOutside(navModel, (event) => {
   nav.show = false
   event.stopPropagation()
 })
-
+onClickOutside(nav2Model, (event) => {
+  nav2.show = false
+  event.stopPropagation()
+})
 const openFullScreen = () => {
   const ele = document.body
   if (ele.requestFullscreen) {
@@ -105,7 +128,7 @@ const list = [{
   routePath: ''
 },{
   name: '重点工作',
-  routePath: '/'
+  routePath: ''
 },
 // {
 //   name: '一张图',
@@ -146,10 +169,10 @@ const list = [{
     <div class="header-right">
       <span class="header-time">{{ nowDateTime }}</span>
       <span class="header-time" style="margin-left: 48px;">多云 23~25℃</span>
-      <span class="header-time" style="margin-left: 48px;cursor: pointer;">
+      <span v-show="!isFullscreen" class="header-time" style="margin-left: 48px;cursor: pointer;">
         <FullscreenOutlined @click="openFullScreen" />
       </span>
-      <span class="header-time" style="margin-left: 24px;cursor: pointer;">
+      <span v-show="isFullscreen" class="header-time" style="margin-left: 24px;cursor: pointer;">
         <FullscreenExitOutlined @click="closeFullScreen" />
       </span>
     </div>
@@ -157,6 +180,15 @@ const list = [{
   <div v-if="nav.show" class="nav-model" ref="navModel">
     <ul class="nav-list">
       <li class="nav-item" v-for="(item, index) in nav.list" :key="index">
+        <RouterLink :to="item.routePath">
+          <span class="nav-item-text">{{ item.name }}</span>
+        </RouterLink>
+      </li>
+    </ul>
+  </div>
+  <div v-if="nav2.show" class="nav-model nav2-model" ref="nav2Model">
+    <ul class="nav-list">
+      <li class="nav-item" v-for="(item, index) in nav2.list" :key="index">
         <RouterLink :to="item.routePath">
           <span class="nav-item-text">{{ item.name }}</span>
         </RouterLink>
@@ -237,7 +269,7 @@ const list = [{
     justify-content: flex-end;
     padding-top: 105px;
     .header-time {
-      color: #00d2ff;
+      color: #006076;
       font-size: 38px;
     }
   }
@@ -262,8 +294,8 @@ const list = [{
   z-index: 99;
   padding: 18px;
   width: 358px;
-  height: 857px;
-  background: url('../../assets/images/nav-bg.png') center center/100% 927px no-repeat;
+  height: 627px;
+  background: url('../../assets/images/nav-bg.png') center center/100% 627px no-repeat;
   .nav-list {
     list-style: none;
     margin: 0;
@@ -283,10 +315,15 @@ const list = [{
         border-bottom: none;
       }
       .nav-item-text {
-        color: #1cd0d8;
+        color: #006076;
         font-size: 36px;
       }
     }
+  }
+  &.nav2-model {
+    left: 300px;
+    height: 300px;
+    background-size: 100% 300px;
   }
 }
 
@@ -303,7 +340,7 @@ const list = [{
 
     .nav-item-text {
       line-height: 46px;
-      color: #00d2ff;
+      color: #006076;
       font-size: 32px;
 
       &:hover {
